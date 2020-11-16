@@ -128,6 +128,7 @@ public class DaoGeneroRank implements Comparable<DaoGeneroRank>{
 
             Collections.sort(generoRank);
             
+            
             return generoRank;
             
         } catch (Exception e) {

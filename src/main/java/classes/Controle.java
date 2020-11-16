@@ -13,7 +13,7 @@ public class Controle {
         
         DaoGeneroRank teste = new DaoGeneroRank();
         
-        JOptionPane.showMessageDialog(null, teste.ListarGenero("rebeca").toString());
+        JOptionPane.showMessageDialog(null, teste.ListarGenero("jorgelpiva").toString());
                
 
     /*Cliente c = new Cliente();

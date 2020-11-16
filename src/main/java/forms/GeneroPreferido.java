@@ -5,6 +5,7 @@
  */
 package forms;
 
+import Dao.DaoGeneroPreferido;
 import Dao.DaoGeneroRank;
 import classes.ConnectionFactory;
 import classes.Genero;
@@ -37,16 +38,20 @@ public class GeneroPreferido extends javax.swing.JFrame {
         List<Genero> generos = new ArrayList<>(genero.preencherCmbBox());
         for (Genero g : generos) {
             generoComboBox.addItem(g.getNomeGenero());
-        }       
-        
-        /*for(DaoGeneroRank dgr: generank.ListarGenero(lblGeneroPref.getText())){
-        
-        }
-        
-        DaoGeneroRank generank = new DaoGeneroRank();
-        DefaultTableModel table = (DefaultTableModel) generoTable.getModel();
-        Object[] dados = (generank.getNomeGenero)
-        */        
+        }    
+       DefaultTableModel tabela = (DefaultTableModel) generoTable.getModel();
+       tabela.setNumRows(0);
+       DaoGeneroRank dgr = new DaoGeneroRank();
+       
+       for(DaoGeneroRank gr: dgr.ListarGenero(login)){
+           
+       
+            tabela.addRow(new Object []{
+                gr.getNomeGenero(),
+                gr.getVlAvaliacao()
+            });
+       }
+               
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -167,6 +172,18 @@ public class GeneroPreferido extends javax.swing.JFrame {
         codigoGenero = pg.ConsultaidGenero(genero);
         pg.CadastroPessoaGenero(codigoGenero, codigoPessoa);
         JOptionPane.showMessageDialog(this, "Genero Preferido Cadastrado com Sucesso!!!");
+          DefaultTableModel tabela = (DefaultTableModel) generoTable.getModel();
+       tabela.setNumRows(0);
+       DaoGeneroRank dgr = new DaoGeneroRank();
+       
+       for(DaoGeneroRank gr: dgr.ListarGenero(login)){
+           
+       
+            tabela.addRow(new Object []{
+                gr.getNomeGenero(),
+                gr.getVlAvaliacao()
+            });
+       }
     }//GEN-LAST:event_adicionarGeneroButtonActionPerformed
 
     /**

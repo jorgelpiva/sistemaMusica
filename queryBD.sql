@@ -154,9 +154,11 @@ INNER JOIN tb_musicaGenero ON tb_musicaGenero.codigoMusica = tb_avaliacao.codigo
 INNER JOIN tb_musica ON tb_musica.codigoMusica = tb_musicaGenero.codigoMusica
 INNER JOIN tb_genero ON tb_genero.codigoGenero = tb_musicaGenero.codigoGenero
 INNER JOIN tb_pessoa ON tb_pessoa.codigoPessoa = tb_avaliacao.codigoCliente 
-WHERE tb_pessoa.loginPessoa = 'rebeca';
+WHERE tb_pessoa.loginPessoa = 'mbanzato' or tb_pessoa.loginPessoa = 'jorgelpiva';
 
 select * from tb_avaliacao;
+
+select * from tb_pessoa;
 
 
 select * from tb_pessoaGenero;
@@ -167,8 +169,16 @@ select * from tb_musicaGenero;
 
 select * from tb_pessoaGenero;
 
+delete from tb_pessoaGenero where codigoPessoa = 6 and codigoGenero = 1;
+
 select tb_pessoa.nomePessoa, tb_genero.nomeGenero from tb_pessoaGenero
 Inner join tb_pessoa on tb_pessoa.codigoPessoa = tb_pessoaGenero.codigoPessoa
 Inner join tb_genero on tb_genero.codigoGenero = tb_pessoaGenero.codigoGenero where tb_pessoa.loginPessoa = 'jorgelpiva';
+
+
+ALTER TABLE tb_pessoaGenero MODIFY codigoPessoaGenero INT NOT NULL;
+ALTER TABLE tb_pessoaGenero DROP PRIMARY KEY;
+ALTER TABLE tb_pessoaGenero DROP COLUMN codigoPessoaGenero;
+ALTER TABLE tb_pessoaGenero ADD PRIMARY KEY (codigoGenero, codigoPessoa); 
 
 
