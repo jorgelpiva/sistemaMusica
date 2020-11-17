@@ -8,10 +8,7 @@ package forms;
 import classes.Pessoa;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author jorge
- */
+
 public class Login extends javax.swing.JFrame {
 
     /**

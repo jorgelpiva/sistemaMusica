@@ -5,7 +5,6 @@
  */
 package forms;
 
-import Dao.DaoGeneroPreferido;
 import Dao.DaoGeneroRank;
 import classes.ConnectionFactory;
 import classes.Genero;
@@ -167,16 +166,17 @@ public class GeneroPreferido extends javax.swing.JFrame {
         int codigoGenero, codigoPessoa;
         genero = generoComboBox.getSelectedItem().toString();
         login = lblGeneroPref.getText();
+        
         PessoaGenero pg = new PessoaGenero();
         codigoPessoa = pg.ConsultaIdPessoa(login);
         codigoGenero = pg.ConsultaidGenero(genero);
-        pg.CadastroPessoaGenero(codigoGenero, codigoPessoa);
-        JOptionPane.showMessageDialog(this, "Genero Preferido Cadastrado com Sucesso!!!");
-          DefaultTableModel tabela = (DefaultTableModel) generoTable.getModel();
-       tabela.setNumRows(0);
-       DaoGeneroRank dgr = new DaoGeneroRank();
+        pg.CadastroPessoaGenero(codigoGenero, codigoPessoa);  
+        
+        DefaultTableModel tabela = (DefaultTableModel) generoTable.getModel();
+        tabela.setNumRows(0);
+        DaoGeneroRank dgr = new DaoGeneroRank();
        
-       for(DaoGeneroRank gr: dgr.ListarGenero(login)){
+        for(DaoGeneroRank gr: dgr.ListarGenero(login)){
            
        
             tabela.addRow(new Object []{

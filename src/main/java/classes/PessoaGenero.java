@@ -8,6 +8,7 @@ package classes;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 public class PessoaGenero {
 
@@ -111,8 +112,9 @@ public class PessoaGenero {
             ps.setInt(2, codigoPessoa);
             //executar
             ps.execute();
+            JOptionPane.showMessageDialog(null, "Genero Preferido Cadastrado com Sucesso!!!");
         } catch (Exception e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Genero já Cadastrado");
         } finally {
             try {
                 c.close();

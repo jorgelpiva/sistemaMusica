@@ -181,4 +181,24 @@ ALTER TABLE tb_pessoaGenero DROP PRIMARY KEY;
 ALTER TABLE tb_pessoaGenero DROP COLUMN codigoPessoaGenero;
 ALTER TABLE tb_pessoaGenero ADD PRIMARY KEY (codigoGenero, codigoPessoa); 
 
+ALTER TABLE tb_musicaGenero MODIFY codigoMusicaGenero INT NOT NULL;
+ALTER TABLE tb_musicaGenero DROP PRIMARY KEY;
+ALTER TABLE tb_musicaGenero DROP COLUMN codigoMusicaGenero;
+ALTER TABLE tb_musicaGenero ADD PRIMARY KEY (codigoMusica, codigoGenero); 
+
+SELECT DISTINCT tb_musica.compositorMusica, tb_musica.nomeMusica, tb_avaliacao.valorAvaliacao 
+FROM tb_musica
+INNER JOIN tb_musicaGenero ON tb_musicaGenero.codigoMusica = tb_musica.codigoMusica
+INNER JOIN tb_genero ON tb_genero.codigoGenero = tb_musicaGenero.codigoGenero
+INNER JOIN tb_pessoaGenero ON tb_pessoaGenero.codigoGenero = tb_musicaGenero.codigoGenero
+INNER JOIN tb_pessoa ON tb_pessoa.codigoPessoa = tb_pessoaGenero.codigoPessoa
+LEFT JOIN tb_avaliacao ON tb_avaliacao.codigoMusica = tb_musica.codigoMusica
+WHERE tb_pessoa.loginPessoa = 'jorgelpiva' AND isnull(tb_avaliacao.valorAvaliacao)
+;
+
+SELECT * FROM tb_avaliacao;
+
+SELECT * FROM tb_pessoaGenero;
+SELECT * FROM tb_pessoa;
+
 
