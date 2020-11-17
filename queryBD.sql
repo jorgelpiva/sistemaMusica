@@ -186,7 +186,12 @@ ALTER TABLE tb_musicaGenero DROP PRIMARY KEY;
 ALTER TABLE tb_musicaGenero DROP COLUMN codigoMusicaGenero;
 ALTER TABLE tb_musicaGenero ADD PRIMARY KEY (codigoMusica, codigoGenero); 
 
-SELECT DISTINCT tb_musica.compositorMusica, tb_musica.nomeMusica, tb_avaliacao.valorAvaliacao 
+ALTER TABLE tb_avaliacao MODIFY codigoAvaliacao INT NOT NULL;
+ALTER TABLE tb_avaliacao DROP PRIMARY KEY;
+ALTER TABLE tb_avaliacao DROP COLUMN codigoAvaliacao;
+ALTER TABLE tb_avaliacao ADD PRIMARY KEY (codigoMusica, codigoCliente); 
+
+SELECT DISTINCT tb_musica.compositorMusica, tb_musica.nomeMusica 
 FROM tb_musica
 INNER JOIN tb_musicaGenero ON tb_musicaGenero.codigoMusica = tb_musica.codigoMusica
 INNER JOIN tb_genero ON tb_genero.codigoGenero = tb_musicaGenero.codigoGenero
@@ -200,5 +205,12 @@ SELECT * FROM tb_avaliacao;
 
 SELECT * FROM tb_pessoaGenero;
 SELECT * FROM tb_pessoa;
+
+SELECT avg(tb_avaliacao.valorAvaliacao), tb_musica.nomeMusica, tb_genero.nomeGenero
+FROM tb_avaliacao
+JOIN tb_musica ON tb_musica.codigoMusica = tb_avaliacao.codigoMusica
+JOIN tb_genero on tb_genero.codigoGenero = tb_avaliacao
+GROUP BY tb_musica.nomeMusica
+;
 
 

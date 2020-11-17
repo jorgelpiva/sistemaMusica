@@ -110,6 +110,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void avaliarMusicaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avaliarMusicaButtonActionPerformed
         // TODO add your handling code here:
+        new AvaliarMusica(usuarioJlabel.getText()).setVisible(true);
     }//GEN-LAST:event_avaliarMusicaButtonActionPerformed
 
     private void generoPreferidoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generoPreferidoButtonActionPerformed

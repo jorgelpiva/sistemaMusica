@@ -5,6 +5,10 @@
  */
 package forms;
 
+import Dao.DaoAvaliar;
+import Dao.DaoGeneroRank;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author jorge
@@ -14,8 +18,25 @@ public class AvaliarMusica extends javax.swing.JFrame {
     /**
      * Creates new form AvaliarMusica
      */
+    
     public AvaliarMusica() {
         initComponents();
+    }
+    
+    public AvaliarMusica(String login) {
+        initComponents();
+        usuarioLabel.setText(login);
+       DefaultTableModel tabelaAvaliar = (DefaultTableModel) avaliacaoTable.getModel();
+       tabelaAvaliar.setNumRows(0);
+       DaoAvaliar dav = new DaoAvaliar();
+       
+       for(DaoAvaliar av: dav.listarNaoAvaliado(login)){      
+            tabelaAvaliar.addRow(new Object []{
+                av.getNomeMusica(),
+                av.getCompositorMusica(),
+                av.getValorAvaliacao()
+            });
+       }
     }
 
     /**
@@ -27,21 +48,80 @@ public class AvaliarMusica extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        avaliacaoTable = new javax.swing.JTable();
+        avaliarButton = new javax.swing.JButton();
+        voltarButton = new javax.swing.JButton();
+        usuarioLabel = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        avaliacaoTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome da Musica", "Autor", "Avaliação"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(avaliacaoTable);
+
+        avaliarButton.setText("Avaliar");
+
+        voltarButton.setText("Voltar");
+        voltarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarButtonActionPerformed(evt);
+            }
+        });
+
+        usuarioLabel.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(voltarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(avaliarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(usuarioLabel)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(avaliarButton)
+                    .addComponent(voltarButton))
+                .addGap(9, 9, 9)
+                .addComponent(usuarioLabel))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_voltarButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +159,10 @@ public class AvaliarMusica extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable avaliacaoTable;
+    private javax.swing.JButton avaliarButton;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel usuarioLabel;
+    private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables
 }
