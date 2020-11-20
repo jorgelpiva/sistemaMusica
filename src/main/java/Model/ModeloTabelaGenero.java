@@ -26,7 +26,7 @@ public class ModeloTabelaGenero extends AbstractTableModel {
         if(columnIndex == 0){
             return g.getNomeGenero();
         }else if (columnIndex == 1){
-            return g.getVlAvaliacao();
+            return (double)g.getVlAvaliacao();
         }else{
             return "";
         }

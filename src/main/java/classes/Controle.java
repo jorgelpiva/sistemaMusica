@@ -10,9 +10,9 @@ public class Controle {
     
     public static void main(String[] args) {
         
-       /* DaoGeneroRank teste = new DaoGeneroRank();
+      DaoGeneroRank teste = new DaoGeneroRank();
         
-        JOptionPane.showMessageDialog(null, teste.ListarGenero("jorgelpiva").toString());
+        teste.ListarGenero("rebeca");
                
 
     /*Cliente c = new Cliente();

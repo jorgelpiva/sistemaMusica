@@ -1,11 +1,13 @@
 
 package Dao;
 
+import Conversoes.Conversao;
 import classes.ConnectionFactory;
 import classes.Genero;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -108,8 +110,8 @@ public class DaoGeneroRank implements Comparable<DaoGeneroRank>{
             conexao.close();
             
             for(Genero g: listaGenero){
-            int contgen = 0, generoSoma = 0;
-            double mediagen = 0;
+            int contgen = 0;
+            double mediagen = 0, generoSoma = 0;
                 for(DaoGeneroRank dgr : generoAvaliacao){
                     if(g.getNomeGenero().equals(dgr.getNomeGenero())){
                         contgen += 1;
@@ -121,6 +123,9 @@ public class DaoGeneroRank implements Comparable<DaoGeneroRank>{
                     }else{
                         mediagen = generoSoma / contgen;
                     }
+                    
+                    mediagen = Conversao.converterDoubleDoisDecimais(mediagen);
+                    
                     DaoGeneroRank generoMedia = new DaoGeneroRank(g.getNomeGenero(), mediagen);
                     
                     generoRank.add(generoMedia);
