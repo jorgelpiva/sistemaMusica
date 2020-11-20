@@ -22,24 +22,28 @@ CREATE TABLE tb_musica(
 );
 
 CREATE TABLE tb_avaliacao(
-	codigoAvaliacao INT PRIMARY KEY AUTO_INCREMENT,
     codigoMusica INT,
-    codigoCliente INT
+    codigoCliente INT,
+    valorAvaliacao INT,
+    FOREIGN KEY (codigoMusica) REFERENCES tb_musica(codigoMusica),
+    FOREIGN KEY (codigoCliente) REFERENCES tb_pessoa(codigoPessoa),
+    PRIMARY KEY (codigoMusica, codigoCliente)
 );
 
-ALTER TABLE tb_avaliacao ADD column valorAvaliacao int(4);
-
 CREATE TABLE tb_pessoaGenero(
-	codigoPessoaGenero INT PRIMARY KEY AUTO_INCREMENT,
-    codigoMusica INT,
+    codigoGenero INT,
     codigoPessoa INT,
-    avaliacao INT
+    FOREIGN KEY (codigoGenero) REFERENCES tb_musica(codigoMusica),
+    FOREIGN KEY (codigoPessoa) REFERENCES tb_pessoa(codigoPessoa),
+    PRIMARY KEY (codigoGenero, codigoPessoa)
 );
 
 CREATE TABLE tb_musicaGenero(
-	codigoMusicaGenero INT PRIMARY KEY AUTO_INCREMENT,
     codigoMusica INT,
-    codigoGenero INT
+    codigoGenero INT,
+    FOREIGN KEY (codigoMusica) REFERENCES tb_musica(codigoMusica),
+    FOREIGN KEY (codigoGenero) REFERENCES tb_genero(codigoGenero),
+    PRIMARY KEY (codigoMusica, codigoGenero)
 );
 
 INSERT INTO tb_pessoa (nomePessoa, loginPessoa, senhaPessoa, emailPessoa) VALUES ('Administrador', 'admin', '123456','admin@email.com');
@@ -104,113 +108,3 @@ INSERT INTO tb_musicaGenero(codigoMusica, codigoGenero) VALUES (19,6);
 INSERT INTO tb_musicaGenero(codigoMusica, codigoGenero) VALUES (20,6);
 INSERT INTO tb_musicaGenero(codigoMusica, codigoGenero) VALUES (21,6);
 INSERT INTO tb_musicaGenero(codigoMusica, codigoGenero) VALUES (22,6);
-
-ALTER TABLE tb_avaliacao ADD FOREIGN KEY (codigoMusica) REFERENCES tb_musica(codigoMusica);
-ALTER TABLE tb_avaliacao ADD FOREIGN KEY (codigoCliente) REFERENCES tb_pessoa(codigoPessoa);
-
-ALTER TABLE tb_musicaGenero ADD FOREIGN KEY (codigoMusica) REFERENCES tb_musica(codigoMusica);
-ALTER TABLE tb_musicaGenero ADD FOREIGN KEY (codigoGenero) REFERENCES tb_genero(codigoGenero);
-
-ALTER TABLE tb_pessoaGenero ADD FOREIGN KEY (codigoMusica) REFERENCES tb_musica(codigoMusica);
-ALTER TABLE tb_pessoaGenero ADD FOREIGN KEY (codigoPessoa) REFERENCES tb_pessoa(codigoPessoa);
-
-
-
-SELECT tb_genero.nomeGenero FROM tb_pessoaGenero
-INNER JOIN tb_genero ON tb_genero.codigoGenero = tb_pessoaGenero.codigoGenero
-INNER JOIN tb_pessoa ON tb_pessoa.codigoPessoa = tb_pessoaGenero.codigoPessoa 
-WHERE tb_pessoa.loginPessoa = 'jorgelpiva';
-
-SELECT * FROM tb_pessoa;
-
-SELECT tb_musica.nomeMusica, tb_avaliacao.valorAvaliacao FROM tb_avaliacao
-INNER JOIN tb_musica ON tb_musica.codigoMusica = tb_avaliacao.codigoMusica;
-
-SELECT codigoPessoa FROM tb_pessoa WHERE loginPessoa = 'jorgelpiva';
-
-SELECT * FROM tb_pessoaGenero;
-
-SELECT * FROM tb_genero;
-
-SELECT * FROM tb_musica;
-
-INSERT INTO tb_avaliacao(codigoMusica, codigoCliente, valorAvaliacao) VALUES (22, 6, 3);
-INSERT INTO tb_avaliacao(codigoMusica, codigoCliente, valorAvaliacao) VALUES (1, 8, 2);
-INSERT INTO tb_avaliacao(codigoMusica, codigoCliente, valorAvaliacao) VALUES (7, 9, 1);
-
-select * from tb_musicaGenero;
-
-SELECT tb_musica.nomeMusica, tb_musica.codigoMusica, tb_genero.nomeGenero, tb_genero.codigoGenero FROM tb_musicaGenero
-INNER JOIN tb_genero ON tb_genero.codigoGenero = tb_musicaGenero.codigoGenero
-INNER JOIN tb_musica ON tb_musica.codigoMusica = tb_musicaGenero.codigoMusica;
-
-SELECT tb_genero.nomeGenero, tb_avaliacao.valorAvaliacao FROM tb_pessoaGenero
-INNER JOIN tb_genero ON tb_genero.codigoGenero = tb_pessoaGenero.codigoGenero
-LEFT JOIN tb_avaliacao ON tb_avaliacao.codigoCliente = tb_pessoaGenero.codigoPessoa;
-
-SELECT tb_musica.nomeMusica, tb_genero.nomeGenero, tb_pessoa.loginPessoa,
-tb_avaliacao.valorAvaliacao FROM tb_avaliacao
-INNER JOIN tb_musicaGenero ON tb_musicaGenero.codigoMusica = tb_avaliacao.codigoMusica
-INNER JOIN tb_musica ON tb_musica.codigoMusica = tb_musicaGenero.codigoMusica
-INNER JOIN tb_genero ON tb_genero.codigoGenero = tb_musicaGenero.codigoGenero
-INNER JOIN tb_pessoa ON tb_pessoa.codigoPessoa = tb_avaliacao.codigoCliente 
-WHERE tb_pessoa.loginPessoa = 'mbanzato' or tb_pessoa.loginPessoa = 'jorgelpiva';
-
-select * from tb_avaliacao;
-
-select * from tb_pessoa;
-
-
-select * from tb_pessoaGenero;
-
-select * from tb_pessoa;
-
-select * from tb_musicaGenero;
-
-select * from tb_pessoaGenero;
-
-delete from tb_pessoaGenero where codigoPessoa = 6 and codigoGenero = 1;
-
-select tb_pessoa.nomePessoa, tb_genero.nomeGenero from tb_pessoaGenero
-Inner join tb_pessoa on tb_pessoa.codigoPessoa = tb_pessoaGenero.codigoPessoa
-Inner join tb_genero on tb_genero.codigoGenero = tb_pessoaGenero.codigoGenero where tb_pessoa.loginPessoa = 'jorgelpiva';
-
-
-ALTER TABLE tb_pessoaGenero MODIFY codigoPessoaGenero INT NOT NULL;
-ALTER TABLE tb_pessoaGenero DROP PRIMARY KEY;
-ALTER TABLE tb_pessoaGenero DROP COLUMN codigoPessoaGenero;
-ALTER TABLE tb_pessoaGenero ADD PRIMARY KEY (codigoGenero, codigoPessoa); 
-
-ALTER TABLE tb_musicaGenero MODIFY codigoMusicaGenero INT NOT NULL;
-ALTER TABLE tb_musicaGenero DROP PRIMARY KEY;
-ALTER TABLE tb_musicaGenero DROP COLUMN codigoMusicaGenero;
-ALTER TABLE tb_musicaGenero ADD PRIMARY KEY (codigoMusica, codigoGenero); 
-
-ALTER TABLE tb_avaliacao MODIFY codigoAvaliacao INT NOT NULL;
-ALTER TABLE tb_avaliacao DROP PRIMARY KEY;
-ALTER TABLE tb_avaliacao DROP COLUMN codigoAvaliacao;
-ALTER TABLE tb_avaliacao ADD PRIMARY KEY (codigoMusica, codigoCliente); 
-
-SELECT DISTINCT tb_musica.compositorMusica, tb_musica.nomeMusica 
-FROM tb_musica
-INNER JOIN tb_musicaGenero ON tb_musicaGenero.codigoMusica = tb_musica.codigoMusica
-INNER JOIN tb_genero ON tb_genero.codigoGenero = tb_musicaGenero.codigoGenero
-INNER JOIN tb_pessoaGenero ON tb_pessoaGenero.codigoGenero = tb_musicaGenero.codigoGenero
-INNER JOIN tb_pessoa ON tb_pessoa.codigoPessoa = tb_pessoaGenero.codigoPessoa
-LEFT JOIN tb_avaliacao ON tb_avaliacao.codigoMusica = tb_musica.codigoMusica
-WHERE tb_pessoa.loginPessoa = 'jorgelpiva' AND isnull(tb_avaliacao.valorAvaliacao)
-;
-
-SELECT * FROM tb_avaliacao;
-
-SELECT * FROM tb_pessoaGenero;
-SELECT * FROM tb_pessoa;
-
-SELECT avg(tb_avaliacao.valorAvaliacao), tb_musica.nomeMusica, tb_genero.nomeGenero
-FROM tb_avaliacao
-JOIN tb_musica ON tb_musica.codigoMusica = tb_avaliacao.codigoMusica
-JOIN tb_genero on tb_genero.codigoGenero = tb_avaliacao
-GROUP BY tb_musica.nomeMusica
-;
-
-
