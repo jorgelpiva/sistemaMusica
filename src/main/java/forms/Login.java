@@ -16,6 +16,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -135,13 +136,10 @@ public class Login extends javax.swing.JFrame {
 
 
         if (verificacao == true){
-            new Principal(loginTextField.getText()).setVisible(true);
+            new Principal(loginTextField.getText().toLowerCase()).setVisible(true);
             this.dispose();
         }else{
-            JOptionPane.showMessageDialog(rootPane, "Usuário ou senha incorretos");
-            this.dispose();
-            Login log = new Login();
-            log.setVisible(true);
+            JOptionPane.showMessageDialog(this, "Usuário ou senha incorretos");
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 

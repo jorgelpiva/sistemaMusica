@@ -112,9 +112,8 @@ public class PessoaGenero {
             ps.setInt(2, codigoPessoa);
             //executar
             ps.execute();
-            JOptionPane.showMessageDialog(null, "Genero Preferido Cadastrado com Sucesso!!!");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Genero já Cadastrado");
+            e.printStackTrace();
         } finally {
             try {
                 c.close();

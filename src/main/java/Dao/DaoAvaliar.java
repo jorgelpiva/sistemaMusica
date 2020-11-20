@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Dao;
 
 import classes.ConnectionFactory;
+import classes.Musica;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -56,46 +52,62 @@ public class DaoAvaliar {
         this.valorAvaliacao = valorAvaliacao;    
     }
     
-    public List<DaoAvaliar> listarNaoAvaliado(String login){
-        List<DaoAvaliar> paraAvaliar = new ArrayList<>();
-        
-        String sqlPAvaliar = "SELECT DISTINCT tb_musica.compositorMusica, "
-                + "tb_musica.nomeMusica, tb_avaliacao.valorAvaliacao " 
-                + "FROM tb_musica "
-                + "INNER JOIN tb_musicaGenero ON tb_musicaGenero.codigoMusica = tb_musica.codigoMusica "
-                + "INNER JOIN tb_genero ON tb_genero.codigoGenero = tb_musicaGenero.codigoGenero "
-                + "INNER JOIN tb_pessoaGenero ON tb_pessoaGenero.codigoGenero = tb_musicaGenero.codigoGenero "
-                + "INNER JOIN tb_pessoa ON tb_pessoa.codigoPessoa = tb_pessoaGenero.codigoPessoa "
-                + "LEFT JOIN tb_avaliacao ON tb_avaliacao.codigoMusica = tb_musica.codigoMusica "
-                + "WHERE tb_pessoa.loginPessoa = ? AND isnull(tb_avaliacao.valorAvaliacao);";
-        
+    public static void enviarAvaliacao(String musica, String login, int avaliacao){
+        int codigoMusica = 0, codigoPessoa = 0;
+        String sqlMusica = "SELECT tb_musica.codigoMusica FROM tb_musica WHERE tb_musica.nomeMusica = ? ;";
+        String sqlPessoa = "SELECT tb_pessoa.codigoPessoa FROM tb_pessoa WHERE tb_pessoa.loginPessoa = ? ;";
         try (Connection conexao = new ConnectionFactory().obterConexao()) {
             //3.Pré compilar o comando
             
-            PreparedStatement ps = conexao.prepareStatement(sqlPAvaliar);
-            //4. substituir os placeholders
-            ps.setString(1, login);
-            //4. Executar
-            ResultSet rs = ps.executeQuery();
-            
-            while (rs.next()){
-                String musica = rs.getString("nomeMusica");
-                String compositor = rs.getString("compositorMusica");
-                int avaliacao = 0;
-                
-                DaoAvaliar av = new DaoAvaliar(musica, compositor, avaliacao);
-                paraAvaliar.add(av);       
+            PreparedStatement psm = conexao.prepareStatement(sqlMusica);
+            psm.setString(1, musica);
+            ResultSet rsm = psm.executeQuery();
+            if (rsm.next()){
+                codigoMusica = rsm.getInt("codigoMusica");
             }
             
             
+            PreparedStatement psp = conexao.prepareStatement(sqlPessoa);
+            psp.setString(1, login);
+            ResultSet rsp = psp.executeQuery();
+            if (rsp.next()){
+                codigoPessoa = rsp.getInt("codigoPessoa");
+            }
+            
+            String sqlInserirAv = "INSERT INTO tb_avaliacao(codigoMusica, codigoCliente, valorAvaliacao) VALUES (?, ?, ?);";
+                PreparedStatement psi = conexao.prepareStatement(sqlInserirAv);
+                psi.setInt(1, codigoMusica);
+                psi.setInt(2, codigoPessoa);
+                psi.setInt(3, avaliacao);
+                
+                psi.execute();
+            
             conexao.close();
-            return paraAvaliar;
 
-            
         } catch (Exception e) {
-            e.printStackTrace();
-            
-        }
+            e.printStackTrace();            
+        }       
+    }
+    
+    public List<DaoAvaliar> listarNaoAvaliado(String login){
+        List<DaoAvaliar> paraAvaliar = new ArrayList<>();
+        String generoCliente = DaoConsultaMusica.listarGenero(login);
+        int cont = 0;
+        
+                 
+            for(Musica mc: DaoConsultaMusica.listMusicaCliente(generoCliente)){
+                cont = 0;
+                
+                for(String st: DaoConsultaMusica.listarAvaliacoes(login)){
+                    if(st.equals(mc.getNomeMusica().toString())){
+                        cont += 1;
+                    }
+                }
+                if(cont == 0){
+                    DaoAvaliar dav = new DaoAvaliar(mc.getNomeMusica(),mc.getCompositorMusica(), 0);
+                    paraAvaliar.add(dav);
+                }
+            }
         return paraAvaliar;
     }
     

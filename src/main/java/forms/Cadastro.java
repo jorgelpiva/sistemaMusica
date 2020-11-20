@@ -19,6 +19,7 @@ public class Cadastro extends javax.swing.JFrame {
      */
     public Cadastro() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

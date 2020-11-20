@@ -16,6 +16,7 @@ public class ObterRecomendacao extends javax.swing.JFrame {
      */
     public ObterRecomendacao() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

@@ -7,6 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Genero {
+    private int classificacao;
+
+    public int getClassificacao() {
+        return classificacao;
+    }
+
+    public void setClassificacao(int classificacao) {
+        this.classificacao = classificacao;
+    }
     private String nomeGenero;
     
     public Genero (String nomeGenero){
