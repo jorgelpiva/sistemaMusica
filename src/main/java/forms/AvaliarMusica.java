@@ -7,6 +7,7 @@ package forms;
 
 import Dao.DaoAvaliar;
 import Model.ModeloTabelaAvaliacao;
+import static java.lang.Integer.parseInt;
 import javax.swing.JOptionPane;
 
 /**
@@ -197,6 +198,9 @@ public class AvaliarMusica extends javax.swing.JFrame {
 
     private void avaliarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avaliarButtonActionPerformed
         // TODO add your handling code here:
+        if(Integer.parseInt(AvaliacaoTextField.getText()) < 1 || Integer.parseInt(AvaliacaoTextField.getText()) > 5){
+            JOptionPane.showMessageDialog(this, "Digite uma avaliação entre 1 e 5");
+        }else{
         DaoAvaliar.enviarAvaliacao(musicaAvTextField.getText(), loginLabel.getText(), 
                 Integer.parseInt(AvaliacaoTextField.getText()));
         
@@ -208,6 +212,7 @@ public class AvaliarMusica extends javax.swing.JFrame {
         
         
         JOptionPane.showMessageDialog(this, "Música avaliada com sucesso");
+        }
     }//GEN-LAST:event_avaliarButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
