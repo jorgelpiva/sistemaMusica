@@ -1,3 +1,4 @@
+#"jdbc:mysql://"+host+":"+porta+"/"+db+"?useTimezone=true&serverTimezone=UTC",
 CREATE DATABASE srMusicas;
 
 USE srMusicas;
