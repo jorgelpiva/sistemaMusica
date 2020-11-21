@@ -12,6 +12,10 @@ public class Avaliar {
         this.nomeCliente = nomeCliente;
         this.valorAvaliacao = valorAvaliacao;    
     }
+
+    public Avaliar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public void avaliarMusica (){
         

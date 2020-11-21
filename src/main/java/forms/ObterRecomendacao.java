@@ -11,12 +11,17 @@ package forms;
  */
 public class ObterRecomendacao extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ObterRecomendacao
-     */
+    private String login; 
     public ObterRecomendacao() {
         initComponents();
         setLocationRelativeTo(null);
+    }
+
+    public ObterRecomendacao(String login) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.login = login;
+        loginLabel.setText(login);
     }
 
     /**
@@ -28,17 +33,27 @@ public class ObterRecomendacao extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        loginLabel = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        loginLabel.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(loginLabel)
+                .addContainerGap(339, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(270, Short.MAX_VALUE)
+                .addComponent(loginLabel)
+                .addContainerGap())
         );
 
         pack();
@@ -80,5 +95,6 @@ public class ObterRecomendacao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel loginLabel;
     // End of variables declaration//GEN-END:variables
 }

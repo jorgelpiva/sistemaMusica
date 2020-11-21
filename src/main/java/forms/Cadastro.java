@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
  * @author jorge
  */
 public class Cadastro extends javax.swing.JFrame {
+    
+    private String senha, senha1;
 
     /**
      * Creates new form Cadastro
@@ -42,8 +44,9 @@ public class Cadastro extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         senhaCadastroPassword = new javax.swing.JPasswordField();
+        senhaCadastroConfirmPassword = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblNomeCadastro.setText("Nome:");
 
@@ -87,6 +90,8 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
 
+        senhaCadastroConfirmPassword.setBorder(javax.swing.BorderFactory.createTitledBorder("Confirme sua Senha"));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,19 +107,20 @@ public class Cadastro extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(lblUsuarioCadastro)
                                 .addComponent(lblSenhaCadastro)
-                                .addComponent(lblEmailCadastro))
+                                .addComponent(lblEmailCadastro, javax.swing.GroupLayout.Alignment.TRAILING))
                             .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(emailCadastroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(usuarioCadastroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(senhaCadastroPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(51, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(emailCadastroTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                                .addComponent(usuarioCadastroTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                                .addComponent(senhaCadastroPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                                .addComponent(senhaCadastroConfirmPassword)))))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,10 +140,12 @@ public class Cadastro extends javax.swing.JFrame {
                     .addComponent(lblSenhaCadastro)
                     .addComponent(senhaCadastroPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addComponent(senhaCadastroConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmailCadastro)
                     .addComponent(emailCadastroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -162,25 +170,32 @@ public class Cadastro extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Cliente c = new Cliente();
+            
+            senha = new String(senhaCadastroPassword.getPassword());
+            senha1 = new String(senhaCadastroConfirmPassword.getPassword());
+            if(senha.equals(senha1)){  
+                
+                Cliente c = new Cliente();
 
-        boolean validarLogin = c.verificarLogin(usuarioCadastroTextField.getText().toLowerCase());
+                boolean validarLogin = c.verificarLogin(usuarioCadastroTextField.getText().toLowerCase());
 
-        if (validarLogin == true){
-            JOptionPane.showMessageDialog(rootPane, "Que Pena usuário já cadastrado!! \n\nEscolha outro nome !!!!");
-        }else{    
-        String senha = new String(senhaCadastroPassword.getPassword());
-        c.fazerCadastro(nomeCadastroTextField.getText(),usuarioCadastroTextField.getText().toLowerCase(),
-                senha, emailCadastroTextField.getText());
-        JOptionPane.showMessageDialog(rootPane, "Usuário Cadastrado com sucesso!!!");
-        this.dispose();
-        }
+                if (validarLogin == true){
+                    JOptionPane.showMessageDialog(this, "Que Pena usuário já cadastrado!! \n\nEscolha outro nome !!!!");
+                }else{    
+                c.fazerCadastro(nomeCadastroTextField.getText(),usuarioCadastroTextField.getText().toLowerCase(),
+                        senha, emailCadastroTextField.getText());
+                JOptionPane.showMessageDialog(rootPane, "Usuário Cadastrado com sucesso!!!");
+                this.dispose();
+                }
+            }else{
+                JOptionPane.showMessageDialog(this, "As senhas não conferem! ");
+            }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]){
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -194,13 +209,13 @@ public class Cadastro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -222,6 +237,7 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JLabel lblSenhaCadastro;
     private javax.swing.JLabel lblUsuarioCadastro;
     private javax.swing.JTextField nomeCadastroTextField;
+    private javax.swing.JPasswordField senhaCadastroConfirmPassword;
     private javax.swing.JPasswordField senhaCadastroPassword;
     private javax.swing.JTextField usuarioCadastroTextField;
     // End of variables declaration//GEN-END:variables

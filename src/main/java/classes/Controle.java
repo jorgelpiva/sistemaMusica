@@ -10,6 +10,8 @@ public class Controle {
     
     public static void main(String[] args) {
         
+        
+        
       /*DaoGeneroRank teste = new DaoGeneroRank();
         
         teste.ListarGenero("rebeca");

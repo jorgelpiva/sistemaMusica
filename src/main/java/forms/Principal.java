@@ -5,15 +5,16 @@
  */
 package forms;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jorge
  */
 public class Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Principal
-     */
+    private boolean haGenero;
+    
     public Principal() {
         initComponents();
     }
@@ -43,6 +44,7 @@ public class Principal extends javax.swing.JFrame {
         avaliarMusicaButton = new javax.swing.JButton();
         obterRecomendacaoButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        minhasAvaliacoesButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aqui você decide!");
@@ -66,6 +68,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         obterRecomendacaoButton.setText("Obter Recomendações");
+        obterRecomendacaoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                obterRecomendacaoButtonActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Sair");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -74,25 +81,34 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        minhasAvaliacoesButton.setText("Minhas Avaliações");
+        minhasAvaliacoesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minhasAvaliacoesButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(generoPreferidoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(usuarioJlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(246, 246, 246)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(avaliarMusicaButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(cadastrarMusicaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cadastrarGeneroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(obterRecomendacaoButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(68, 68, 68))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(cadastrarMusicaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cadastrarGeneroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(generoPreferidoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                        .addComponent(avaliarMusicaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(minhasAvaliacoesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(obterRecomendacaoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,12 +118,14 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(avaliarMusicaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(minhasAvaliacoesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(obterRecomendacaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadastrarMusicaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cadastrarGeneroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(usuarioJlabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -118,8 +136,15 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void avaliarMusicaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avaliarMusicaButtonActionPerformed
-        // TODO add your handling code here:
-        new AvaliarMusica(usuarioJlabel.getText()).setVisible(true);
+        
+        haGenero = Dao.DaoGenero.haGenero(usuarioJlabel.getText());
+        if (haGenero == true){
+            new AvaliarMusica(usuarioJlabel.getText()).setVisible(true);   
+        }else{
+            JOptionPane.showMessageDialog(this, "Ei espera!! antes de Avaliar uma música\n escolha pelo menos 1 gênero preferido");
+        }
+        
+        
     }//GEN-LAST:event_avaliarMusicaButtonActionPerformed
 
     private void generoPreferidoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generoPreferidoButtonActionPerformed
@@ -133,6 +158,19 @@ public class Principal extends javax.swing.JFrame {
         new Login().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void obterRecomendacaoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obterRecomendacaoButtonActionPerformed
+        haGenero = Dao.DaoGenero.haGenero(usuarioJlabel.getText());
+        if (haGenero == true){
+            new ObterRecomendacao(usuarioJlabel.getText()).setVisible(true);   
+        }else{
+            JOptionPane.showMessageDialog(this, "Ei espera!! antes de Obter recomendações\n escolha pelo menos 1 gênero preferido");
+        }
+    }//GEN-LAST:event_obterRecomendacaoButtonActionPerformed
+
+    private void minhasAvaliacoesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minhasAvaliacoesButtonActionPerformed
+        new MinhasAvaliacoes(usuarioJlabel.getText()).setVisible(true);
+    }//GEN-LAST:event_minhasAvaliacoesButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,6 +214,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton cadastrarMusicaButton;
     private javax.swing.JButton generoPreferidoButton;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton minhasAvaliacoesButton;
     private javax.swing.JButton obterRecomendacaoButton;
     private javax.swing.JLabel usuarioJlabel;
     // End of variables declaration//GEN-END:variables

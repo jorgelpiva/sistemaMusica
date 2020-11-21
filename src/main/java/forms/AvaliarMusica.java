@@ -26,7 +26,7 @@ public class AvaliarMusica extends javax.swing.JFrame {
         initComponents();
     }
     
-        public AvaliarMusica(String login) {
+    public AvaliarMusica(String login) {
         initComponents();
         setLocationRelativeTo(null);
         loginLabel.setText(login);
@@ -35,6 +35,14 @@ public class AvaliarMusica extends javax.swing.JFrame {
        for(DaoAvaliar av: dav.listarNaoAvaliado(login)){
             modeloTabela.adicionar(av);
         }
+    }
+
+    public ModeloTabelaAvaliacao getModeloTabela() {
+        return modeloTabela;
+    }
+
+    public void setModeloTabela(ModeloTabelaAvaliacao modeloTabela) {
+        this.modeloTabela = modeloTabela;
     }
 
     /**
@@ -57,9 +65,8 @@ public class AvaliarMusica extends javax.swing.JFrame {
         CompositorLabel = new javax.swing.JLabel();
         AvaliacaoLabel = new javax.swing.JLabel();
         sairButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Avalie as Músicas de Seus Gêneros Favoritos!!!");
 
         avaliarTable.setModel(modeloTabela);
@@ -104,13 +111,6 @@ public class AvaliarMusica extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Minhas Avaliações");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -136,9 +136,7 @@ public class AvaliarMusica extends javax.swing.JFrame {
                             .addComponent(AvaliacaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(206, 206, 206)
                                 .addComponent(avaliarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -164,7 +162,6 @@ public class AvaliarMusica extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(loginLabel)
                     .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(avaliarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9))
         );
@@ -215,10 +212,6 @@ public class AvaliarMusica extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_avaliarButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       new MinhasAvaliacoes(loginLabel.getText()).setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -262,7 +255,6 @@ public class AvaliarMusica extends javax.swing.JFrame {
     private javax.swing.JButton avaliarButton;
     private javax.swing.JTable avaliarTable;
     private javax.swing.JTextField compositorTextField;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel loginLabel;
     private javax.swing.JTextField musicaAvTextField;

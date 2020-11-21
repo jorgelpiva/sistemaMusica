@@ -109,7 +109,6 @@ public class DaoAvaliar {
                 }
             }
         return paraAvaliar;
-    }
-    
+    }    
     
 }

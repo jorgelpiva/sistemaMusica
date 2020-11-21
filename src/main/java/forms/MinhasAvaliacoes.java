@@ -5,11 +5,23 @@
  */
 package forms;
 
+import Dao.DaoAvaliar;
+import Dao.DaoConsultaAvaliacao;
+import Model.ModeloTabelaAvaliacao;
+import classes.Avaliar;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jorge
  */
 public class MinhasAvaliacoes extends javax.swing.JFrame {
+    
+    private ModeloTabelaAvaliacao modeloAvaliado = new ModeloTabelaAvaliacao();
+    private DaoAvaliar selecionado = null;
+    private String musica, compositor;
+    private int avaliacao;
+    private int resposta;
 
     /**
      * Creates new form MinhasAvaliacoes
@@ -20,8 +32,13 @@ public class MinhasAvaliacoes extends javax.swing.JFrame {
     
     public MinhasAvaliacoes(String login) {
         initComponents();
-        loginLabel.setText(login);
         setLocationRelativeTo(null);
+        loginLabel.setText(login);
+        
+        for(DaoAvaliar av : DaoConsultaAvaliacao.avaliacoesConcedidas(login)){
+            modeloAvaliado.adicionar(av);
+        }
+        
     }
     
 
@@ -36,34 +53,49 @@ public class MinhasAvaliacoes extends javax.swing.JFrame {
 
         loginLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        avaliadoTable = new javax.swing.JTable();
+        sairButton = new javax.swing.JButton();
+        ExcluirAvaliacaoButton = new javax.swing.JButton();
+        reavaliarButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Veja as avaliações que voê já fez!!!");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         loginLabel.setText("jLabel1");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        avaliadoTable.setModel(modeloAvaliado);
+        avaliadoTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                avaliadoTableMouseClicked(evt);
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        });
+        jScrollPane1.setViewportView(avaliadoTable);
 
-        jButton1.setText("jButton1");
+        sairButton.setText("Voltar");
+        sairButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairButtonActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("jButton2");
+        ExcluirAvaliacaoButton.setText("Excluir Avaliação");
+        ExcluirAvaliacaoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExcluirAvaliacaoButtonActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("jButton3");
+        reavaliarButton.setText("Reavaliar");
+        reavaliarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reavaliarButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,15 +105,16 @@ public class MinhasAvaliacoes extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(reavaliarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(loginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(84, 84, 84)
-                                .addComponent(jButton2)
-                                .addGap(157, 157, 157)
-                                .addComponent(jButton3))
-                            .addComponent(loginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(92, 92, 92)
+                                .addComponent(ExcluirAvaliacaoButton)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -92,15 +125,66 @@ public class MinhasAvaliacoes extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(sairButton)
+                    .addComponent(ExcluirAvaliacaoButton)
+                    .addComponent(reavaliarButton))
                 .addGap(45, 45, 45)
                 .addComponent(loginLabel))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void avaliadoTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_avaliadoTableMouseClicked
+        DaoAvaliar dav = modeloAvaliado.getAvaliar(avaliadoTable.getSelectedRow());
+        
+        musica = dav.getNomeMusica();
+        compositor = dav.getCompositorMusica();
+        avaliacao = dav.getValorAvaliacao();
+        
+        selecionado = dav;
+    }//GEN-LAST:event_avaliadoTableMouseClicked
+
+    private void sairButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_sairButtonActionPerformed
+
+    private void ExcluirAvaliacaoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirAvaliacaoButtonActionPerformed
+        resposta = JOptionPane.showConfirmDialog(this, "Tem certeza que quer excluir a avaliação da música "+ musica);
+        if (resposta == 0){
+
+            if (musica == null){
+                JOptionPane.showMessageDialog(this,"Selecione uma Avaliação para Excluir! ");
+            }else{
+               DaoConsultaAvaliacao.excluirAvaliacao(loginLabel.getText(), musica);
+               modeloAvaliado.remover(selecionado);
+               JOptionPane.showMessageDialog(this, "Avaliação Excluída com sucesso!! ");
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Opção cancelada!!");
+        }
+    }//GEN-LAST:event_ExcluirAvaliacaoButtonActionPerformed
+
+    private void reavaliarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reavaliarButtonActionPerformed
+        if (musica == null){
+            JOptionPane.showMessageDialog(this,"Selecione uma Avaliação para Alterar! ");
+        }else{
+             new Reavaliar(loginLabel.getText(), musica, compositor).setVisible(true);
+             this.dispose();
+        }
+    }//GEN-LAST:event_reavaliarButtonActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+
+    }//GEN-LAST:event_formWindowClosed
+
+    public ModeloTabelaAvaliacao getModeloAvaliado() {
+        return modeloAvaliado;
+    }
+
+    public void setModeloAvaliado(ModeloTabelaAvaliacao modeloAvaliado) {
+        this.modeloAvaliado = modeloAvaliado;
+    }
 
     /**
      * @param args the command line arguments
@@ -138,11 +222,11 @@ public class MinhasAvaliacoes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton ExcluirAvaliacaoButton;
+    private javax.swing.JTable avaliadoTable;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel loginLabel;
+    private javax.swing.JButton reavaliarButton;
+    private javax.swing.JButton sairButton;
     // End of variables declaration//GEN-END:variables
 }

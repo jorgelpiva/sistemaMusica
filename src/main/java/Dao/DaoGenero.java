@@ -77,4 +77,30 @@ public class DaoGenero {
         }       
         return false;
     }    
+     
+     public static boolean haGenero(String login){
+        
+        int codigoPessoa = 0, codigoGenero = 0;
+        String sql = "SELECT tb_genero.nomeGenero FROM tb_pessoaGenero\n" +
+                       "INNER JOIN tb_pessoa ON tb_pessoa.codigoPessoa = tb_pessoaGenero.codigoPessoa \n" +
+                       "INNER JOIN tb_genero ON tb_genero.codigoGenero = tb_pessoaGenero.codigoGenero \n" +
+                       "WHERE tb_pessoa.loginPessoa = ? ;";
+        
+        try (Connection conexao = new ConnectionFactory().obterConexao()) {
+            //3.Pré compilar o comando
+            
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            ps.setString(1, login);
+            ResultSet rs = ps.executeQuery();
+            
+      
+            boolean bool = rs.next();
+            conexao.close();
+            return bool;
+
+        } catch (Exception e) {
+            e.printStackTrace();            
+        }       
+        return false;
+    }    
 }
