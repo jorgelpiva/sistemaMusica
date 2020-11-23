@@ -50,8 +50,8 @@ public class ManutencaoMusica extends javax.swing.JFrame {
             modeloGeneroTable.adicionar(gm);
         }
         
-        alterarNomeMusicaTextField.setText(this.nomeDaMusica);
-        alterarCompositorTextField.setText(this.compositorDaMusica);
+        musicaFixoTextField.setText(this.nomeDaMusica);
+        compositorMusicaFixoTextField.setText(this.compositorDaMusica);
     
     }
 
@@ -74,6 +74,8 @@ public class ManutencaoMusica extends javax.swing.JFrame {
         alterarButton = new javax.swing.JButton();
         excluirGeneroButton = new javax.swing.JButton();
         voltarButton = new javax.swing.JButton();
+        musicaFixoTextField = new javax.swing.JTextField();
+        compositorMusicaFixoTextField = new javax.swing.JTextField();
         loginLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -126,6 +128,12 @@ public class ManutencaoMusica extends javax.swing.JFrame {
             }
         });
 
+        musicaFixoTextField.setEditable(false);
+        musicaFixoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome da Música"));
+
+        compositorMusicaFixoTextField.setEditable(false);
+        compositorMusicaFixoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome do Compositor"));
+
         javax.swing.GroupLayout alterarPanelLayout = new javax.swing.GroupLayout(alterarPanel);
         alterarPanel.setLayout(alterarPanelLayout);
         alterarPanelLayout.setHorizontalGroup(
@@ -139,21 +147,30 @@ public class ManutencaoMusica extends javax.swing.JFrame {
             .addComponent(alterarCompositorTextField)
             .addComponent(alterarNomeMusicaTextField)
             .addGroup(alterarPanelLayout.createSequentialGroup()
-                .addGroup(alterarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(alterarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(voltarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(voltarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(alterarPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(alterarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(compositorMusicaFixoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(musicaFixoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(alterarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         alterarPanelLayout.setVerticalGroup(
             alterarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(alterarPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(alterarNomeMusicaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(alterarCompositorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(alterarButton)
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
+                .addComponent(musicaFixoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(compositorMusicaFixoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(alterarComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(alterarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -161,9 +178,9 @@ public class ManutencaoMusica extends javax.swing.JFrame {
                     .addComponent(excluirGeneroButton))
                 .addGap(16, 16, 16)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(voltarButton)
-                .addGap(25, 25, 25))
+                .addContainerGap())
         );
 
         loginLabel.setText("jLabel1");
@@ -185,7 +202,7 @@ public class ManutencaoMusica extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(570, Short.MAX_VALUE)
+                .addContainerGap(580, Short.MAX_VALUE)
                 .addComponent(loginLabel)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,21 +224,28 @@ public class ManutencaoMusica extends javax.swing.JFrame {
     }//GEN-LAST:event_voltarButtonActionPerformed
 
     private void alterarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarButtonActionPerformed
-        nomeDaMusica = alterarNomeMusicaTextField.getText();
-        compositorDaMusica = alterarCompositorTextField.getText(); 
-        
-        boolean duplicidade = DaoMusica.verifDuplicidade(nomeDaMusica, compositorDaMusica);
-        
-        if(duplicidade == true){
-            JOptionPane.showMessageDialog(this,"Impossível alterar, já existe uma música com esse nome!\nPara o Mesmo Compositor!  ");
+        if(alterarNomeMusicaTextField.getText().equals("") || alterarCompositorTextField.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Preencha o nome da Música e o Compositor");
         }else{
-        DaoMusica.alterarNomeOuCompositor(nomeDaMusica, compositorDaMusica, codigoMusica);
-        JOptionPane.showMessageDialog(this, "Musica alterada com sucesso! ");
+            nomeDaMusica = alterarNomeMusicaTextField.getText();
+            compositorDaMusica = alterarCompositorTextField.getText(); 
+
+            musicaFixoTextField.setText(nomeDaMusica);
+            compositorMusicaFixoTextField.setText(compositorDaMusica);
+
+            boolean duplicidade = DaoMusica.verifDuplicidade(nomeDaMusica, compositorDaMusica);
+
+            if(duplicidade == true){
+                JOptionPane.showMessageDialog(this,"Impossível alterar, já existe uma música com esse nome!\nPara o Mesmo Compositor!  ");
+            }else{
+            DaoMusica.alterarNomeOuCompositor(nomeDaMusica, compositorDaMusica, codigoMusica);
+            JOptionPane.showMessageDialog(this, "Musica alterada com sucesso! ");
+            }
         }
     }//GEN-LAST:event_alterarButtonActionPerformed
 
     private void adicionarGeneroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarGeneroButtonActionPerformed
-        boolean haGeneroMusica = DaoGenero.haGeneroMusica(nomeDaMusica, alterarComboBox.getSelectedItem().toString());
+        boolean haGeneroMusica = DaoGenero.haGeneroMusica(musicaFixoTextField.getText(), alterarComboBox.getSelectedItem().toString());
         if (haGeneroMusica == true){
             JOptionPane.showMessageDialog(this, "Genero já está cadastrado para esta Música.");
         }else{
@@ -297,10 +321,12 @@ public class ManutencaoMusica extends javax.swing.JFrame {
     private javax.swing.JTextField alterarCompositorTextField;
     private javax.swing.JTextField alterarNomeMusicaTextField;
     private javax.swing.JPanel alterarPanel;
+    private javax.swing.JTextField compositorMusicaFixoTextField;
     private javax.swing.JButton excluirGeneroButton;
     private javax.swing.JTable generoTable;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel loginLabel;
+    private javax.swing.JTextField musicaFixoTextField;
     private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables
 }

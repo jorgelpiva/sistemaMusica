@@ -7,7 +7,6 @@ import classes.Genero;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -141,19 +140,6 @@ public class DaoGeneroRank implements Comparable<DaoGeneroRank>{
         }
         return generoRank;
     }
-    
-     /*SELECT tb_genero.nomeGenero FROM tb_pessoaGenero //consultar os generos 
-INNER JOIN tb_genero ON tb_genero.codigoGenero = tb_pessoaGenero.codigoGenero
-INNER JOIN tb_pessoa ON tb_pessoa.codigoPessoa = tb_pessoaGenero.codigoPessoa 
-WHERE tb_pessoa.loginPessoa = 'jorgelpiva';*/
-        
-        /* SELECT tb_musica.nomeMusica, tb_genero.nomeGenero, tb_pessoa.loginPessoa,
-tb_avaliacao.valorAvaliacao FROM tb_avaliacao
-INNER JOIN tb_musicaGenero ON tb_musicaGenero.codigoMusica = tb_avaliacao.codigoMusica
-INNER JOIN tb_musica ON tb_musica.codigoMusica = tb_musicaGenero.codigoMusica
-INNER JOIN tb_genero ON tb_genero.codigoGenero = tb_musicaGenero.codigoGenero
-INNER JOIN tb_pessoa ON tb_pessoa.codigoPessoa = tb_avaliacao.codigoCliente 
-WHERE tb_pessoa.loginPessoa = 'mbanzato';*/
 
     @Override
     public String toString() {

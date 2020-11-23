@@ -10,9 +10,6 @@ import java.util.List;
 
 public class DaoMusica {
     
-    
-
-
      public static void alterarNomeOuCompositor(String musica, String compositor, int codigo){
          
         String sql = "UPDATE tb_musica SET tb_musica.nomeMusica = ?, tb_musica.compositorMusica = ?\n " +
