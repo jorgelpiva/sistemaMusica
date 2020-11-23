@@ -7,11 +7,11 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 public class ModeloTabelaRecomendacao extends AbstractTableModel {
-    private List<DaoAvaliar> avaliar = new ArrayList();
+    private List<DaoAvaliar> recomendado = new ArrayList();
 
     @Override
     public int getRowCount() {
-        return avaliar.size(); //To change body of generated methods, choose Tools | Templates.
+        return recomendado.size(); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -21,7 +21,7 @@ public class ModeloTabelaRecomendacao extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        DaoAvaliar av = avaliar.get(rowIndex); //To change body of generated methods, choose Tools | Templates.
+        DaoAvaliar av = recomendado.get(rowIndex); //To change body of generated methods, choose Tools | Templates.
         if(columnIndex == 0){
             return av.getNomeMusica();
         }else if (columnIndex == 1){
@@ -34,13 +34,13 @@ public class ModeloTabelaRecomendacao extends AbstractTableModel {
     }
     
     public void adicionar(DaoAvaliar av){
-        avaliar.add(av);
-        fireTableRowsInserted(avaliar.size() -1, avaliar.size() -1);
+        recomendado.add(av);
+        fireTableRowsInserted(recomendado.size() -1, recomendado.size() -1);
     }
     
     public void remover (DaoAvaliar av){
-        avaliar.remove(av);
-        fireTableRowsInserted(avaliar.size() -1, avaliar.size() -1);
+        recomendado.remove(av);
+        fireTableRowsInserted(recomendado.size() -1, recomendado.size() -1);
     }
     
     @Override
@@ -50,14 +50,14 @@ public class ModeloTabelaRecomendacao extends AbstractTableModel {
         }else if(column == 1){
             return "Compositor Música";
         }else if (column == 2){
-            return "Avaliação da Música";
+            return "Posto da Música";
         }else{
             return "";
         }
     }
     
-    public DaoAvaliar getAvaliar(int linha){
-        return avaliar.get(linha);
+    public DaoAvaliar getRecomendado(int linha){
+        return recomendado.get(linha);
         
     }
     

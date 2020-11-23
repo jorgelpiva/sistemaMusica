@@ -81,11 +81,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar Musicas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarMusicaButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="cadastrarGeneroButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar G&#xea;neros"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarGeneroButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="generoPreferidoButton">
       <Properties>

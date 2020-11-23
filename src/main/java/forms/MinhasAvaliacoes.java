@@ -20,7 +20,7 @@ public class MinhasAvaliacoes extends javax.swing.JFrame {
     private ModeloTabelaAvaliacao modeloAvaliado = new ModeloTabelaAvaliacao();
     private DaoAvaliar selecionado = null;
     private String musica, compositor;
-    private int avaliacao;
+    private double avaliacao;
     private int resposta;
 
     /**
@@ -59,7 +59,7 @@ public class MinhasAvaliacoes extends javax.swing.JFrame {
         reavaliarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Veja as avaliações que voê já fez!!!");
+        setTitle("Veja as avaliações que você já fez!!!");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);

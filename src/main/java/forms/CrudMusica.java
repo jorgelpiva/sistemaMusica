@@ -5,18 +5,53 @@
  */
 package forms;
 
+import Dao.DaoGenero;
+import Dao.DaoMusica;
+import Model.ModeloTabelaAvaliacao;
+import Model.ModeloTabelaCrudGenero;
+import Model.ModeloTabelaCrudMusica;
+import classes.Genero;
+import classes.Musica;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jorge
  */
 public class CrudMusica extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CrudMusica
-     */
+    private String login;
+    private ModeloTabelaCrudMusica modeloMusicaTable = new ModeloTabelaCrudMusica();
+    private Musica selecionadoMusica = null;
+    private String nomeDaMusica;
+    private String compositorDaMusica;
+    
     public CrudMusica() {
         initComponents();
     }
+    
+    public CrudMusica(String login) {
+        initComponents();
+        setLocationRelativeTo(null);
+        loginLabel.setText(login);
+        this.login = loginLabel.getText();   
+        Genero genero = new Genero();
+        List<Genero> generos = new ArrayList<>(genero.preencherCmbBox());
+        for (Genero g : generos) {
+            generoCadastroComboBox.addItem(g.getNomeGenero());
+        }
+        for(Musica m: Dao.DaoMusica.listarMusicas()){
+            modeloMusicaTable.adicionar(m);
+        }
+        
+    }        
+      
+      private void limparCampos(){
+          musicaCadastroTextField.setText("");
+          compositorCadastroTextField.setText("");
+      }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,21 +62,213 @@ public class CrudMusica extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        musicaTable = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        musicaCadastroTextField = new javax.swing.JTextField();
+        compositorCadastroTextField = new javax.swing.JTextField();
+        generoCadastroComboBox = new javax.swing.JComboBox<>();
+        SalvarButton = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        alterarButton = new javax.swing.JButton();
+        loginLabel = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de Músicas");
+        setPreferredSize(new java.awt.Dimension(800, 600));
+        setResizable(false);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastro de Músicas"));
+
+        musicaTable.setModel(modeloMusicaTable);
+        musicaTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                musicaTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(musicaTable);
+
+        jLabel1.setText("Musica");
+
+        jLabel2.setText("Compositor");
+
+        jLabel3.setText("Gênero");
+
+        SalvarButton.setText("Salvar Música");
+        SalvarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalvarButtonActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Excluir Música");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Voltar Ao Menu");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        alterarButton.setText("Alterar Música");
+        alterarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alterarButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(musicaCadastroTextField)
+                            .addComponent(compositorCadastroTextField)
+                            .addComponent(generoCadastroComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(101, 101, 101)
+                        .addComponent(alterarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(SalvarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(musicaCadastroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(compositorCadastroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(generoCadastroComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(SalvarButton)
+                    .addComponent(alterarButton))
+                .addGap(15, 15, 15)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        loginLabel.setText("jLabel4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(loginLabel)
+                        .addGap(0, 727, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(loginLabel)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void SalvarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarButtonActionPerformed
+        String musicaNome = musicaCadastroTextField.getText();
+        String musicaCompositor = compositorCadastroTextField.getText();
+        
+        boolean duplicidade = DaoMusica.verifDuplicidade(musicaNome, musicaCompositor);
+        
+        if (duplicidade == true){
+            JOptionPane.showMessageDialog(this, "Ops!! Música já cadastrada! ");
+            limparCampos();
+        }else{
+        //processo de inserção
+            Dao.DaoMusica.incluirMusicaTbMusica(musicaNome, musicaCompositor);
+            int codigoGenero = DaoGenero.codigoGenero(generoCadastroComboBox.getSelectedItem().toString());
+            int codigoMusica = DaoMusica.codigoMusica(musicaNome, musicaCompositor);
+            DaoMusica.incluirMusicaTbMusicaGenero(codigoMusica, codigoGenero);
+            Musica musica = new Musica(musicaNome, musicaCompositor);
+            modeloMusicaTable.adicionar(musica);
+            JOptionPane.showMessageDialog(this, "Música adicionada com Sucesso!!! ");
+            limparCampos();
+        }
+    }//GEN-LAST:event_SalvarButtonActionPerformed
+
+    private void musicaTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_musicaTableMouseClicked
+        Musica mu = modeloMusicaTable.getMusica(musicaTable.getSelectedRow());
+        
+        nomeDaMusica = mu.getNomeMusica();
+        compositorDaMusica = mu.getCompositorMusica();
+        
+        selecionadoMusica = mu;
+        
+    }//GEN-LAST:event_musicaTableMouseClicked
+
+    private void alterarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarButtonActionPerformed
+       if(nomeDaMusica == null){
+           JOptionPane.showMessageDialog(this, "Selecione a música que deseja alterar");
+       }else{
+           new ManutencaoMusica(loginLabel.getText(), nomeDaMusica, compositorDaMusica, DaoMusica.codigoMusica(nomeDaMusica, compositorDaMusica)).setVisible(true);
+           this.dispose();
+       }
+       
+       
+    }//GEN-LAST:event_alterarButtonActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        boolean musicaAvaliada = DaoMusica.verifSeAvaliada(nomeDaMusica, compositorDaMusica);
+        if(musicaAvaliada == true){
+            JOptionPane.showMessageDialog(this, "Imposível excluir a música\n\nA mesma já foi avaliada!! ");
+        }else{
+            DaoMusica.excluirMusicaGenero(nomeDaMusica, compositorDaMusica);
+            DaoMusica.excluirMusica(nomeDaMusica, compositorDaMusica);
+            modeloMusicaTable.remover(selecionadoMusica);
+            JOptionPane.showMessageDialog(this,"Música Excluída com sucesso!!! ");
+            
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +306,19 @@ public class CrudMusica extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton SalvarButton;
+    private javax.swing.JButton alterarButton;
+    private javax.swing.JTextField compositorCadastroTextField;
+    private javax.swing.JComboBox<String> generoCadastroComboBox;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel loginLabel;
+    private javax.swing.JTextField musicaCadastroTextField;
+    private javax.swing.JTable musicaTable;
     // End of variables declaration//GEN-END:variables
 }

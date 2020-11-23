@@ -12,14 +12,20 @@ import java.util.List;
  *
  * @author jorge
  */
-public class DaoAvaliar {
+public class DaoAvaliar implements Comparable<DaoAvaliar>{
     
     private String nomeMusica;
     private String compositorMusica;
-    private int valorAvaliacao;
+    private double valorAvaliacao;
     
     public DaoAvaliar(){
         
+    }
+
+    DaoAvaliar(String nomeMusica, String compositorMusica, double posto) {
+        this.nomeMusica = nomeMusica;
+        this.compositorMusica = compositorMusica;
+        this.valorAvaliacao = posto;
     }
 
     public String getNomeMusica() {
@@ -38,11 +44,11 @@ public class DaoAvaliar {
         this.compositorMusica = compositorMusica;
     }
 
-    public int getValorAvaliacao() {
+    public double getValorAvaliacao() {
         return valorAvaliacao;
     }
 
-    public void setValorAvaliacao(int valorAvaliacao) {
+    public void setValorAvaliacao(double valorAvaliacao) {
         this.valorAvaliacao = valorAvaliacao;
     }
     
@@ -89,7 +95,7 @@ public class DaoAvaliar {
         }       
     }
     
-    public List<DaoAvaliar> listarNaoAvaliado(String login){
+    public static List<DaoAvaliar> listarNaoAvaliado(String login){
         List<DaoAvaliar> paraAvaliar = new ArrayList<>();
         String generoCliente = DaoConsultaMusica.listarGenero(login);
         int cont = 0;
@@ -110,5 +116,15 @@ public class DaoAvaliar {
             }
         return paraAvaliar;
     }    
+
+    @Override
+    public int compareTo(DaoAvaliar t) {
+        if(this.valorAvaliacao > t.getValorAvaliacao()){
+            return -1;
+        }else if(this.valorAvaliacao < t.getValorAvaliacao()){
+            return 1;
+        }
+        return 0;
+    }
     
 }

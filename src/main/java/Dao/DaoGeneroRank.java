@@ -66,7 +66,7 @@ public class DaoGeneroRank implements Comparable<DaoGeneroRank>{
         this.vlAvaliacao = vlAvaliacao;
     }
     
-    public List<DaoGeneroRank> ListarGenero(String login) {
+    public static List<DaoGeneroRank> ListarGenero(String login) {
         List<DaoGeneroRank> generoRank = new ArrayList<>();
         List<Genero> listaGenero = new ArrayList<>();
         List<DaoGeneroRank> generoAvaliacao = new ArrayList<>();

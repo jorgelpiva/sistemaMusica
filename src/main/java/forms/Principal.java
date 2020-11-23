@@ -50,8 +50,18 @@ public class Principal extends javax.swing.JFrame {
         setTitle("Aqui você decide!");
 
         cadastrarMusicaButton.setText("Cadastrar Musicas");
+        cadastrarMusicaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarMusicaButtonActionPerformed(evt);
+            }
+        });
 
         cadastrarGeneroButton.setText("Cadastrar Gêneros");
+        cadastrarGeneroButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarGeneroButtonActionPerformed(evt);
+            }
+        });
 
         generoPreferidoButton.setText("Meus Gêneros Preferidos");
         generoPreferidoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -171,6 +181,14 @@ public class Principal extends javax.swing.JFrame {
     private void minhasAvaliacoesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minhasAvaliacoesButtonActionPerformed
         new MinhasAvaliacoes(usuarioJlabel.getText()).setVisible(true);
     }//GEN-LAST:event_minhasAvaliacoesButtonActionPerformed
+
+    private void cadastrarGeneroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarGeneroButtonActionPerformed
+        new CrudGenero(usuarioJlabel.getText()).setVisible(true);
+    }//GEN-LAST:event_cadastrarGeneroButtonActionPerformed
+
+    private void cadastrarMusicaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarMusicaButtonActionPerformed
+       new CrudMusica(usuarioJlabel.getText()).setVisible(true);
+    }//GEN-LAST:event_cadastrarMusicaButtonActionPerformed
 
     /**
      * @param args the command line arguments

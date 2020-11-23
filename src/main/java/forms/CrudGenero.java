@@ -5,17 +5,45 @@
  */
 package forms;
 
+import Dao.DaoGenero;
+import Model.ModeloTabelaCrudGenero;
+import classes.Genero;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jorge
  */
 public class CrudGenero extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CrudGenero
-     */
+    private ModeloTabelaCrudGenero modeloGenero = new ModeloTabelaCrudGenero();
+    private Genero selecionado = null;
+    private String nomeAtual;
+    
     public CrudGenero() {
         initComponents();
+    }
+    
+    public CrudGenero(String login) {
+        initComponents();
+        ocultar();
+        setLocationRelativeTo(null);
+        loginLabel.setText(login);
+       
+       for(Genero lg: DaoGenero.listarGeneros()){
+            modeloGenero.adicionar(lg);
+        }
+    }
+    private void ocultar(){
+        alterarSalvarButton.setVisible(false);
+        alterarTextField.setVisible(false);
+        alterarPanel.setVisible(false);
+    }
+    
+     private void reexibir(){
+        alterarSalvarButton.setVisible(true);
+        alterarTextField.setVisible(true);
+        alterarPanel.setVisible(true);
     }
 
     /**
@@ -27,31 +55,239 @@ public class CrudGenero extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        voltarButton = new javax.swing.JButton();
+        loginLabel = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        generoLabel = new javax.swing.JLabel();
+        generoTextField = new javax.swing.JTextField();
+        salvarButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableGenero = new javax.swing.JTable();
+        excluirButton = new javax.swing.JButton();
+        alterarButton = new javax.swing.JButton();
+        alterarPanel = new javax.swing.JPanel();
+        alterarTextField = new javax.swing.JTextField();
+        alterarSalvarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 600));
+        setResizable(false);
 
-        jButton1.setText("jButton1");
+        voltarButton.setText("Voltar ao Menu");
+        voltarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarButtonActionPerformed(evt);
+            }
+        });
+
+        loginLabel.setText("jLabel1");
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastro de Gênero"));
+
+        generoLabel.setText("Nome do Gênero:");
+
+        generoTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generoTextFieldActionPerformed(evt);
+            }
+        });
+
+        salvarButton.setText("Salvar");
+        salvarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salvarButtonActionPerformed(evt);
+            }
+        });
+
+        tableGenero.setModel(modeloGenero);
+        tableGenero.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableGeneroMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tableGenero);
+
+        excluirButton.setText("Exlcuir");
+        excluirButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluirButtonActionPerformed(evt);
+            }
+        });
+
+        alterarButton.setText("Alterar");
+        alterarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alterarButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(generoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(alterarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addComponent(excluirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58)
+                        .addComponent(salvarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(generoTextField))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(generoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(generoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(alterarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salvarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(excluirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 58, Short.MAX_VALUE))
+        );
+
+        alterarPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Alterar Gênero"));
+
+        alterarSalvarButton.setText("Salvar Alterações");
+        alterarSalvarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alterarSalvarButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout alterarPanelLayout = new javax.swing.GroupLayout(alterarPanel);
+        alterarPanel.setLayout(alterarPanelLayout);
+        alterarPanelLayout.setHorizontalGroup(
+            alterarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(alterarPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(alterarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(alterarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(alterarSalvarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        alterarPanelLayout.setVerticalGroup(
+            alterarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(alterarPanelLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(alterarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                .addComponent(alterarSalvarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(302, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(28, 28, 28))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(alterarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(voltarButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(loginLabel)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(233, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(39, 39, 39))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(alterarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86)
+                        .addComponent(voltarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(loginLabel)
+                .addGap(15, 15, 15))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButtonActionPerformed
+        boolean verificarDuplicidade = DaoGenero.verifDuplicidade(generoTextField.getText().toUpperCase());
+        if (verificarDuplicidade == true){
+            JOptionPane.showMessageDialog(this, "Gênero já cadastrado ");
+            generoTextField.setText("");
+        }else{
+            Genero g = new Genero(generoTextField.getText().toUpperCase());
+            DaoGenero.incluirGenero(generoTextField.getText().toUpperCase());
+            modeloGenero.adicionar(g);
+            JOptionPane.showMessageDialog(this, "Genero "+generoTextField.getText().toUpperCase()+" cadastrado com sucesso!");
+            generoTextField.setText("");
+        }
+    }//GEN-LAST:event_salvarButtonActionPerformed
+
+    private void generoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generoTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_generoTextFieldActionPerformed
+
+    private void alterarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarButtonActionPerformed
+        if (selecionado == null){
+            JOptionPane.showMessageDialog(this, "Selecione o Gênero que deseja alterar! ");
+        }
+        reexibir();
+    }//GEN-LAST:event_alterarButtonActionPerformed
+
+    private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_voltarButtonActionPerformed
+
+    private void alterarSalvarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarSalvarButtonActionPerformed
+        boolean verificarDuplicidade = DaoGenero.verifDuplicidade(alterarTextField.getText().toUpperCase());
+        if (verificarDuplicidade == true){
+            JOptionPane.showMessageDialog(this, "Gênero já cadastrado ");
+            ocultar();
+            alterarTextField.setText("");
+        }else{
+        ocultar();
+        DaoGenero.alterarGenero(nomeAtual, alterarTextField.getText().toUpperCase());
+      
+        Genero g = new Genero(alterarTextField.getText().toUpperCase());
+            modeloGenero.adicionar(g);
+            modeloGenero.remover(selecionado);
+            JOptionPane.showMessageDialog(this, "Genero "+alterarTextField.getText().toUpperCase()+" alterado com sucesso!");
+            
+        }
+    }//GEN-LAST:event_alterarSalvarButtonActionPerformed
+
+    private void tableGeneroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableGeneroMouseClicked
+        Genero genClicado = modeloGenero.getGenero(tableGenero.getSelectedRow());
+        alterarTextField.setText(genClicado.getNomeGenero());
+        selecionado = genClicado;
+        nomeAtual = genClicado.getNomeGenero();
+    }//GEN-LAST:event_tableGeneroMouseClicked
+
+    private void excluirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirButtonActionPerformed
+        boolean vinculoMusica = DaoGenero.verifMusicaGenero(alterarTextField.getText());
+        boolean vinculoPessoa = DaoGenero.verifPessoaGenero(alterarTextField.getText());
+        
+        if(vinculoMusica == true || vinculoPessoa == true){
+            JOptionPane.showMessageDialog(this, "Não é possível excluir: O Gênero está vinculado(Pessoa ou Música)");
+        }else{
+            DaoGenero.excluirGenero(alterarTextField.getText());
+            modeloGenero.remover(selecionado);
+            JOptionPane.showMessageDialog(this, "Genero Excluído com sucesso.");
+        }
+    }//GEN-LAST:event_excluirButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,6 +325,18 @@ public class CrudGenero extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton alterarButton;
+    private javax.swing.JPanel alterarPanel;
+    private javax.swing.JButton alterarSalvarButton;
+    private javax.swing.JTextField alterarTextField;
+    private javax.swing.JButton excluirButton;
+    private javax.swing.JLabel generoLabel;
+    private javax.swing.JTextField generoTextField;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel loginLabel;
+    private javax.swing.JButton salvarButton;
+    private javax.swing.JTable tableGenero;
+    private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables
 }
