@@ -1,7 +1,7 @@
 
 package Dao;
 
-import Conversoes.Conversao;
+import Model.Conversao;
 import classes.ConnectionFactory;
 import classes.Genero;
 import java.sql.Connection;

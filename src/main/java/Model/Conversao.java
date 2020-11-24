@@ -1,5 +1,5 @@
 
-package Conversoes;
+package Model;
 
 import java.text.DecimalFormat;
 

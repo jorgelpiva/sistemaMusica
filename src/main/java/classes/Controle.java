@@ -1,11 +1,6 @@
 package classes;
 
-import Dao.DaoConsultaMusica;
-import Dao.DaoGenero;
-import Dao.DaoGeneroRank;
 import forms.Login;
-import java.util.Collections;
-import javax.swing.JOptionPane;
 
 public class Controle {
     

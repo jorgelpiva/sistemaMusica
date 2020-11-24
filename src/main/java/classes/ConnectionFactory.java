@@ -13,7 +13,7 @@ public class ConnectionFactory {
     public Connection obterConexao (){
         try {
             Connection c = DriverManager.getConnection(
-            "jdbc:mysql://" + host + ":" + porta + "/" + db,
+            "jdbc:mysql://"+host+":"+porta+"/"+db+"?useTimezone=true&serverTimezone=UTC",
             usuario,
             senha        
             );
