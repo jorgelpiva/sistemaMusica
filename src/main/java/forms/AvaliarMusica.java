@@ -195,20 +195,24 @@ public class AvaliarMusica extends javax.swing.JFrame {
 
     private void avaliarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avaliarButtonActionPerformed
         // TODO add your handling code here:
-        if(Integer.parseInt(AvaliacaoTextField.getText()) < 1 || Integer.parseInt(AvaliacaoTextField.getText()) > 5){
-            JOptionPane.showMessageDialog(this, "Digite uma avaliação entre 1 e 5");
-        }else{
-        DaoAvaliar.enviarAvaliacao(musicaAvTextField.getText(), loginLabel.getText(), 
-                Integer.parseInt(AvaliacaoTextField.getText()));
-        
-        AvaliacaoTextField.setText("");
-        musicaAvTextField.setText("");
-        compositorTextField.setText("");
-        
-        modeloTabela.remover(selecionado);
-        
-        
-        JOptionPane.showMessageDialog(this, "Música avaliada com sucesso");
+        try{
+            if(Integer.parseInt(AvaliacaoTextField.getText()) < 1 || Integer.parseInt(AvaliacaoTextField.getText()) > 5){
+                JOptionPane.showMessageDialog(this, "Digite uma avaliação entre 1 e 5");
+            }else{
+            DaoAvaliar.enviarAvaliacao(musicaAvTextField.getText(), loginLabel.getText(), 
+                    Integer.parseInt(AvaliacaoTextField.getText()));
+
+            AvaliacaoTextField.setText("");
+            musicaAvTextField.setText("");
+            compositorTextField.setText("");
+
+            modeloTabela.remover(selecionado);
+
+
+            JOptionPane.showMessageDialog(this, "Música avaliada com sucesso");
+            }
+        }catch(NumberFormatException e){
+           JOptionPane.showMessageDialog(this, "Escolha uma avaliação entre 1 e 5"); 
         }
     }//GEN-LAST:event_avaliarButtonActionPerformed
 

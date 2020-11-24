@@ -230,14 +230,15 @@ public class ManutencaoMusica extends javax.swing.JFrame {
             nomeDaMusica = alterarNomeMusicaTextField.getText();
             compositorDaMusica = alterarCompositorTextField.getText(); 
 
-            musicaFixoTextField.setText(nomeDaMusica);
-            compositorMusicaFixoTextField.setText(compositorDaMusica);
+            
 
             boolean duplicidade = DaoMusica.verifDuplicidade(nomeDaMusica, compositorDaMusica);
 
             if(duplicidade == true){
                 JOptionPane.showMessageDialog(this,"Impossível alterar, já existe uma música com esse nome!\nPara o Mesmo Compositor!  ");
             }else{
+            musicaFixoTextField.setText(nomeDaMusica);
+            compositorMusicaFixoTextField.setText(compositorDaMusica);
             DaoMusica.alterarNomeOuCompositor(nomeDaMusica, compositorDaMusica, codigoMusica);
             JOptionPane.showMessageDialog(this, "Musica alterada com sucesso! ");
             }

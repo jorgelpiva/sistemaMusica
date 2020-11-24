@@ -173,22 +173,27 @@ public class Cadastro extends javax.swing.JFrame {
             
             senha = new String(senhaCadastroPassword.getPassword());
             senha1 = new String(senhaCadastroConfirmPassword.getPassword());
-            if(senha.equals(senha1)){  
-                
-                Cliente c = new Cliente();
-
-                boolean validarLogin = c.verificarLogin(usuarioCadastroTextField.getText().toLowerCase());
-
-                if (validarLogin == true){
-                    JOptionPane.showMessageDialog(this, "Que Pena usuário já cadastrado!! \n\nEscolha outro nome !!!!");
-                }else{    
-                c.fazerCadastro(nomeCadastroTextField.getText(),usuarioCadastroTextField.getText().toLowerCase(),
-                        senha, emailCadastroTextField.getText());
-                JOptionPane.showMessageDialog(rootPane, "Usuário Cadastrado com sucesso!!!");
-                this.dispose();
-                }
+            if(Dao.DaoPessoa.verifEmail(emailCadastroTextField.getText())==true){
+                JOptionPane.showMessageDialog(this, "Não é possível efetuar o cadastro\n"
+                        + "email já cadastrado!!! ");
             }else{
-                JOptionPane.showMessageDialog(this, "As senhas não conferem! ");
+                if(senha.equals(senha1)){  
+
+                    Cliente c = new Cliente();
+
+                    boolean validarLogin = c.verificarLogin(usuarioCadastroTextField.getText().toLowerCase());
+
+                    if (validarLogin == true){
+                        JOptionPane.showMessageDialog(this, "Que Pena usuário já cadastrado!! \n\nEscolha outro nome !!!!");
+                    }else{    
+                    c.fazerCadastro(nomeCadastroTextField.getText(),usuarioCadastroTextField.getText().toLowerCase(),
+                            senha, emailCadastroTextField.getText());
+                    JOptionPane.showMessageDialog(rootPane, "Usuário Cadastrado com sucesso!!!");
+                    this.dispose();
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(this, "As senhas não conferem! ");
+                }
             }
     }//GEN-LAST:event_jButton2ActionPerformed
 

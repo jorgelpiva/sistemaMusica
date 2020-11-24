@@ -87,7 +87,6 @@ public class ObterRecomendacao extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Veja as músicas mais quentes!!");
         setBackground(new java.awt.Color(1, 1, 1));
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
         loginLabel.setText("jLabel1");
@@ -121,8 +120,10 @@ public class ObterRecomendacao extends javax.swing.JFrame {
 
         avaliarPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Avaliar esta música"));
 
+        musicaTextField.setEditable(false);
         musicaTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Música"));
 
+        compositorTextField.setEditable(false);
         compositorTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Compositor"));
 
         avaliacaoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Avaliação"));
