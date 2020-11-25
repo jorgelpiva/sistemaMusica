@@ -2,12 +2,13 @@
 package Model;
 
 import Dao.DaoAvaliar;
+import classes.Avaliar;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 public class ModeloTabelaRecomendacao extends AbstractTableModel {
-    private List<DaoAvaliar> recomendado = new ArrayList();
+    private List<Avaliar> recomendado = new ArrayList();
 
     @Override
     public int getRowCount() {
@@ -21,7 +22,7 @@ public class ModeloTabelaRecomendacao extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        DaoAvaliar av = recomendado.get(rowIndex); //To change body of generated methods, choose Tools | Templates.
+        Avaliar av = recomendado.get(rowIndex); //To change body of generated methods, choose Tools | Templates.
         if(columnIndex == 0){
             return av.getNomeMusica();
         }else if (columnIndex == 1){
@@ -33,12 +34,12 @@ public class ModeloTabelaRecomendacao extends AbstractTableModel {
         }
     }
     
-    public void adicionar(DaoAvaliar av){
+    public void adicionar(Avaliar av){
         recomendado.add(av);
         fireTableRowsInserted(recomendado.size() -1, recomendado.size() -1);
     }
     
-    public void remover (DaoAvaliar av){
+    public void remover (Avaliar av){
         recomendado.remove(av);
         fireTableRowsInserted(recomendado.size() -1, recomendado.size() -1);
     }
@@ -56,7 +57,7 @@ public class ModeloTabelaRecomendacao extends AbstractTableModel {
         }
     }
     
-    public DaoAvaliar getRecomendado(int linha){
+    public Avaliar getRecomendado(int linha){
         return recomendado.get(linha);
         
     }

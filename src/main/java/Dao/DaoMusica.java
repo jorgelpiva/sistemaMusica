@@ -1,6 +1,7 @@
 package Dao;
 
 import classes.ConnectionFactory;
+import classes.Genero;
 import classes.Musica;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -218,6 +219,33 @@ public class DaoMusica {
         }       
     } 
      
-     
     
-}
+    public static List<Musica> listMusicaCliente(String stringsql){
+        List<Musica> musicas = new ArrayList<>();
+        
+        
+     String sql = "SELECT DISTINCT tb_musica.nomeMusica, tb_musica.compositorMusica FROM tb_musicaGenero "+
+                  "INNER JOIN tb_musica ON tb_musica.codigoMusica = tb_musicaGenero.codigoMusica "+
+                  "INNER JOIN tb_genero ON tb_genero.codigoGenero = tb_musicaGenero.codigoGenero "+
+                  "WHERE tb_genero.nomeGenero = "+stringsql+";";
+        
+        try (Connection conexao = new ConnectionFactory().obterConexao()) {
+            //3.Pré compilar o comando
+            
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                Musica m = new Musica(rs.getString("nomeMusica"), rs.getString("compositorMusica"));
+                musicas.add(m);
+            }
+            
+            conexao.close();          
+            
+        return musicas;  
+
+        } catch (Exception e) {
+            e.printStackTrace();            
+        } 
+        return musicas;  
+    }
+ }

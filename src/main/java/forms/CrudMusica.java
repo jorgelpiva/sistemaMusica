@@ -37,8 +37,7 @@ public class CrudMusica extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         loginLabel.setText(login);
         this.login = loginLabel.getText();   
-        Genero genero = new Genero();
-        List<Genero> generos = new ArrayList<>(genero.preencherCmbBox());
+        List<Genero> generos = new ArrayList<>(DaoGenero.listarGeneros());
         for (Genero g : generos) {
             generoCadastroComboBox.addItem(g.getNomeGenero());
         }

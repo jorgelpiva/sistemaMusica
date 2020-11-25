@@ -7,8 +7,8 @@ package forms;
 
 import Dao.DaoAvaliar;
 import Dao.DaoRecomendacao;
-import Model.ModeloTabelaAvaliacao;
 import Model.ModeloTabelaRecomendacao;
+import classes.Avaliar;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,7 +19,7 @@ public class ObterRecomendacao extends javax.swing.JFrame {
 
     private String login; 
     private ModeloTabelaRecomendacao modeloTabRecomendacao = new ModeloTabelaRecomendacao();
-    private DaoAvaliar selecionado = null;
+    private Avaliar selecionado = null;
     private String musica, compositor;
     private int avaliacao;
     
@@ -39,7 +39,7 @@ public class ObterRecomendacao extends javax.swing.JFrame {
         this.login = login;
         loginLabel.setText(login);
         ocultar();       
-        for(DaoAvaliar posto:DaoRecomendacao.recomendacao(login)){
+        for(Avaliar posto:DaoRecomendacao.recomendacao(login)){
             modeloTabRecomendacao.adicionar(posto);
         }
     }
@@ -248,14 +248,14 @@ public class ObterRecomendacao extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarButtonActionPerformed
 
     private void recomendacaoTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recomendacaoTableMouseClicked
-        DaoAvaliar dav = modeloTabRecomendacao.getRecomendado(recomendacaoTable.getSelectedRow());
+        Avaliar av = modeloTabRecomendacao.getRecomendado(recomendacaoTable.getSelectedRow());
         
-        musica = dav.getNomeMusica();
-        compositor = dav.getCompositorMusica();
+        musica = av.getNomeMusica();
+        compositor = av.getCompositorMusica();
         musicaTextField.setText(musica);
         compositorTextField.setText(compositor);
         
-        selecionado = dav;
+        selecionado = av;
     }//GEN-LAST:event_recomendacaoTableMouseClicked
 
     private void darAvaliacaoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_darAvaliacaoButtonActionPerformed

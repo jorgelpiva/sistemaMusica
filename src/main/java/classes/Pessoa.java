@@ -51,30 +51,4 @@ public class Pessoa {
         this.loginPessoa = loginPessoa;
         this.senhaPessoa = senhaPessoa;
     }
-    
-        public boolean validarLogin() {
-        boolean check = false;
-        //1 Definir o comando SQL
-        String sql = "SELECT loginPessoa, senhaPessoa FROM tb_pessoa WHERE loginPessoa = ? and senhaPessoa = ?;";
-        //2.Abrir conexão
-        try (Connection conexao = new ConnectionFactory().obterConexao()) {
-            //3.Pré compilar o comando
-            
-            PreparedStatement ps = conexao.prepareStatement(sql);
-            //4. substituir os placeholders
-            ps.setString(1, this.loginPessoa);
-            ps.setString(2, this.senhaPessoa);
-            //4. Executar
-            ResultSet rs = ps.executeQuery();
-            if (rs.next() == true) {
-                check = true;
-            }else{
-                check = false;
-            }  
-            conexao.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return check;
-    }
 }

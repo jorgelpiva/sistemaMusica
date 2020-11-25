@@ -135,6 +135,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="musicaAvTextField">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="musicaAvTextFieldActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="MusicaLabel">
       <Properties>

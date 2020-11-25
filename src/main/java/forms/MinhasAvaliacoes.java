@@ -6,7 +6,6 @@
 package forms;
 
 import Dao.DaoAvaliar;
-import Dao.DaoConsultaAvaliacao;
 import Model.ModeloTabelaAvaliacao;
 import classes.Avaliar;
 import javax.swing.JOptionPane;
@@ -18,7 +17,7 @@ import javax.swing.JOptionPane;
 public class MinhasAvaliacoes extends javax.swing.JFrame {
     
     private ModeloTabelaAvaliacao modeloAvaliado = new ModeloTabelaAvaliacao();
-    private DaoAvaliar selecionado = null;
+    private Avaliar selecionado = null;
     private String musica, compositor;
     private double avaliacao;
     private int resposta;
@@ -35,7 +34,9 @@ public class MinhasAvaliacoes extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         loginLabel.setText(login);
         
-        for(DaoAvaliar av : DaoConsultaAvaliacao.avaliacoesConcedidas(login)){
+        
+        
+        for(Avaliar av : DaoAvaliar.avaliacoesConcedidas(login)){
             modeloAvaliado.adicionar(av);
         }
         
@@ -136,7 +137,7 @@ public class MinhasAvaliacoes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void avaliadoTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_avaliadoTableMouseClicked
-        DaoAvaliar dav = modeloAvaliado.getAvaliar(avaliadoTable.getSelectedRow());
+        Avaliar dav = modeloAvaliado.getAvaliar(avaliadoTable.getSelectedRow());
         
         musica = dav.getNomeMusica();
         compositor = dav.getCompositorMusica();
@@ -156,7 +157,7 @@ public class MinhasAvaliacoes extends javax.swing.JFrame {
             if (musica == null){
                 JOptionPane.showMessageDialog(this,"Selecione uma Avaliação para Excluir! ");
             }else{
-               DaoConsultaAvaliacao.excluirAvaliacao(loginLabel.getText(), musica);
+               DaoAvaliar.excluirAvaliacao(loginLabel.getText(), musica);
                modeloAvaliado.remover(selecionado);
                JOptionPane.showMessageDialog(this, "Avaliação Excluída com sucesso!! ");
             }

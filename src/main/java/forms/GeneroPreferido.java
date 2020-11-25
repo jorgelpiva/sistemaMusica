@@ -6,7 +6,6 @@
 package forms;
 
 import Dao.DaoGenero;
-import Dao.DaoGeneroRank;
 import Model.ModeloTabelaGenero;
 import classes.Genero;
 import classes.PessoaGenero;
@@ -21,7 +20,8 @@ import javax.swing.JOptionPane;
 public class GeneroPreferido extends javax.swing.JFrame {
 
     private ModeloTabelaGenero modeloTabGen = new ModeloTabelaGenero();
-    private DaoGeneroRank selecionado = null;
+    private Genero selecionado = null;
+    private String generoClicado = null;
             
     public GeneroPreferido() {
         initComponents();
@@ -31,14 +31,12 @@ public class GeneroPreferido extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         lblGeneroPref.setText(login);
-        Genero genero = new Genero();
-        List<Genero> generos = new ArrayList<>(genero.preencherCmbBox());
+        List<Genero> generos = new ArrayList<>(DaoGenero.listarGeneros());
         for (Genero g : generos) {
             generoComboBox.addItem(g.getNomeGenero());
         }    
         
-       DaoGeneroRank dgr = new DaoGeneroRank();
-       for(DaoGeneroRank gr: dgr.ListarGenero(login)){
+       for(Genero gr: DaoGenero.ListarRankGenero(login)){
            modeloTabGen.adicionar(gr);
        }               
     }
@@ -59,7 +57,6 @@ public class GeneroPreferido extends javax.swing.JFrame {
         sairButton = new javax.swing.JButton();
         ExcluirGeneroButton = new javax.swing.JButton();
         generoLabel = new javax.swing.JLabel();
-        generoTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Meus Gêneros Preferidos");
@@ -95,13 +92,6 @@ public class GeneroPreferido extends javax.swing.JFrame {
             }
         });
 
-        generoTextField.setEditable(false);
-        generoTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                generoTextFieldActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -110,11 +100,9 @@ public class GeneroPreferido extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblGeneroPref)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                        .addComponent(generoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(generoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblGeneroPref, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(84, 84, 84)
+                        .addComponent(generoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -139,11 +127,10 @@ public class GeneroPreferido extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(sairButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblGeneroPref)
-                    .addComponent(generoLabel)
-                    .addComponent(generoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(generoLabel))
                 .addContainerGap())
         );
 
@@ -164,8 +151,8 @@ public class GeneroPreferido extends javax.swing.JFrame {
             codigoPessoa = pg.ConsultaIdPessoa(login);
             codigoGenero = pg.ConsultaidGenero(genero);
             pg.CadastroPessoaGenero(codigoGenero, codigoPessoa);  
-            DaoGeneroRank dgr = new DaoGeneroRank(genero, 0);
-            modeloTabGen.adicionar(dgr);
+            Genero grk = new Genero(genero, 0);
+            modeloTabGen.adicionar(grk);
             JOptionPane.showMessageDialog(this, "Ebaaaa! Gênero preferido Cadastrado com Sucesso!");
         }else{
             JOptionPane.showMessageDialog(this, "Este Gênero já foi Cadastrado");
@@ -174,16 +161,15 @@ public class GeneroPreferido extends javax.swing.JFrame {
     }//GEN-LAST:event_adicionarGeneroButtonActionPerformed
 
     private void ExcluirGeneroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirGeneroButtonActionPerformed
-        DaoGenero.excluirGeneroPref(lblGeneroPref.getText(), generoTextField.getText());
+        DaoGenero.excluirGeneroPref(lblGeneroPref.getText(), generoClicado);
         modeloTabGen.remover(selecionado);
-        generoTextField.setText("");
         JOptionPane.showMessageDialog(this, "Gênero Preferido Excluído com Sucesso! ");
         
     }//GEN-LAST:event_ExcluirGeneroButtonActionPerformed
 
     private void generoTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generoTableMouseClicked
-       DaoGeneroRank click = modeloTabGen.getGenero(generoTable.getSelectedRow());
-       generoTextField.setText(click.getNomeGenero());
+       Genero click = modeloTabGen.getGenero(generoTable.getSelectedRow());
+       generoClicado = click.getNomeGenero();
        selecionado = click;
     }//GEN-LAST:event_generoTableMouseClicked
 
@@ -191,10 +177,6 @@ public class GeneroPreferido extends javax.swing.JFrame {
         this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_sairButtonActionPerformed
-
-    private void generoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generoTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_generoTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,7 +219,6 @@ public class GeneroPreferido extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> generoComboBox;
     private javax.swing.JLabel generoLabel;
     private javax.swing.JTable generoTable;
-    private javax.swing.JTextField generoTextField;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblGeneroPref;
     private javax.swing.JButton sairButton;

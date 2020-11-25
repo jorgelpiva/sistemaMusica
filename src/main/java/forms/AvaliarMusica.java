@@ -7,6 +7,7 @@ package forms;
 
 import Dao.DaoAvaliar;
 import Model.ModeloTabelaAvaliacao;
+import classes.Avaliar;
 import static java.lang.Integer.parseInt;
 import javax.swing.JOptionPane;
 
@@ -17,7 +18,7 @@ import javax.swing.JOptionPane;
 public class AvaliarMusica extends javax.swing.JFrame {
     
     private ModeloTabelaAvaliacao modeloTabela = new ModeloTabelaAvaliacao();
-    private DaoAvaliar selecionado = null;
+    private Avaliar selecionado = null;
 
     /**
      * Creates new form AvaliarMusica
@@ -32,7 +33,7 @@ public class AvaliarMusica extends javax.swing.JFrame {
         loginLabel.setText(login);
         DaoAvaliar dav = new DaoAvaliar();
        
-       for(DaoAvaliar av: dav.listarNaoAvaliado(login)){
+       for(Avaliar av: dav.listarNaoAvaliado(login)){
             modeloTabela.adicionar(av);
         }
     }
@@ -95,6 +96,12 @@ public class AvaliarMusica extends javax.swing.JFrame {
         compositorTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 compositorTextFieldActionPerformed(evt);
+            }
+        });
+
+        musicaAvTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                musicaAvTextFieldActionPerformed(evt);
             }
         });
 
@@ -170,7 +177,7 @@ public class AvaliarMusica extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void avaliarTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_avaliarTableMouseClicked
-        DaoAvaliar dav = modeloTabela.getAvaliar(avaliarTable.getSelectedRow());
+        Avaliar dav = modeloTabela.getAvaliar(avaliarTable.getSelectedRow());
         
         musicaAvTextField.setText(dav.getNomeMusica());
         compositorTextField.setText(dav.getCompositorMusica());
@@ -215,6 +222,10 @@ public class AvaliarMusica extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(this, "Escolha uma avaliação entre 1 e 5"); 
         }
     }//GEN-LAST:event_avaliarButtonActionPerformed
+
+    private void musicaAvTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_musicaAvTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_musicaAvTextFieldActionPerformed
 
     /**
      * @param args the command line arguments

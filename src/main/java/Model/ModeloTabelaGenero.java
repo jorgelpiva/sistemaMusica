@@ -1,14 +1,13 @@
 
 package Model;
 
-import Dao.DaoAvaliar;
-import Dao.DaoGeneroRank;
+import classes.Genero;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 public class ModeloTabelaGenero extends AbstractTableModel {
-    private List<DaoGeneroRank> generoPref = new ArrayList();
+    private List<Genero> generoPref = new ArrayList();
 
     @Override
     public int getRowCount() {
@@ -22,22 +21,22 @@ public class ModeloTabelaGenero extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        DaoGeneroRank g = generoPref.get(rowIndex); //To change body of generated methods, choose Tools | Templates.
+        Genero g = generoPref.get(rowIndex); //To change body of generated methods, choose Tools | Templates.
         if(columnIndex == 0){
             return g.getNomeGenero();
         }else if (columnIndex == 1){
-            return (double)g.getVlAvaliacao();
+            return (double)g.getClassificacao();
         }else{
             return "";
         }
     }
     
-    public void adicionar(DaoGeneroRank g){
+    public void adicionar(Genero g){
         generoPref.add(g);
         fireTableRowsInserted(generoPref.size() -1, generoPref.size() -1);
     }
     
-    public void remover (DaoGeneroRank g){
+    public void remover (Genero g){
         generoPref.remove(g);
         fireTableRowsInserted(generoPref.size() -1, generoPref.size() -1);
     }
@@ -53,7 +52,7 @@ public class ModeloTabelaGenero extends AbstractTableModel {
         }
     }
     
-    public DaoGeneroRank getGenero(int linha){
+    public Genero getGenero(int linha){
         return generoPref.get(linha);
         
     }

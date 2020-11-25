@@ -2,30 +2,47 @@
 package classes;
 
 
-public class Avaliar {
+public class Avaliar  implements Comparable<Avaliar>{
     private String nomeMusica;
     private String nomeCliente;
-    private int valorAvaliacao;
+    private double valorAvaliacao;
+    private String compositorMusica;
+
+    public String getCompositorMusica() {
+        return compositorMusica;
+    }
+
+    public void setCompositorMusica(String compositorMusica) {
+        this.compositorMusica = compositorMusica;
+    }
     
-    public Avaliar(String nomeMusica, String nomeCliente, int valorAvaliacao){
+    public Avaliar(String nomeMusica, String compositorMusica, double valorAvaliacao){
+        this.nomeMusica = nomeMusica;
+        this.compositorMusica = compositorMusica;
+        this.valorAvaliacao = valorAvaliacao;    
+    }
+    
+    public Avaliar(String nomeMusica, double valorAvaliacao, String nomeCliente){
         this.nomeMusica = nomeMusica;
         this.nomeCliente = nomeCliente;
         this.valorAvaliacao = valorAvaliacao;    
     }
 
-    public Avaliar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getNomeMusica() {
+        return nomeMusica;
     }
-    
-    public void avaliarMusica (){
-        
+
+    public double getValorAvaliacao() {
+        return valorAvaliacao;
     }
-    
-    public void alterarAvaliacao(){
-        
-    }
-    
-    public void posto(){
-        
+
+    @Override
+    public int compareTo(Avaliar t) {
+        if(this.valorAvaliacao > t.getValorAvaliacao()){
+            return -1;
+        }else if(this.valorAvaliacao < t.getValorAvaliacao()){
+            return 1;
+        }
+        return 0;
     }
 }

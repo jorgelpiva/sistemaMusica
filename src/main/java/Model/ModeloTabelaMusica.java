@@ -2,12 +2,13 @@
 package Model;
 
 import Dao.DaoAvaliar;
+import classes.Avaliar;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 public class ModeloTabelaMusica extends AbstractTableModel {
-    private List<DaoAvaliar> avaliar = new ArrayList();
+    private List<Avaliar> avaliar = new ArrayList();
 
     @Override
     public int getRowCount() {
@@ -21,7 +22,7 @@ public class ModeloTabelaMusica extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        DaoAvaliar av = avaliar.get(rowIndex); //To change body of generated methods, choose Tools | Templates.
+        Avaliar av = avaliar.get(rowIndex); //To change body of generated methods, choose Tools | Templates.
         if(columnIndex == 0){
             return av.getNomeMusica();
         }else if (columnIndex == 1){
@@ -33,12 +34,12 @@ public class ModeloTabelaMusica extends AbstractTableModel {
         }
     }
     
-    public void adicionar(DaoAvaliar av){
+    public void adicionar(Avaliar av){
         avaliar.add(av);
         fireTableRowsInserted(avaliar.size() -1, avaliar.size() -1);
     }
     
-    public void remover (DaoAvaliar av){
+    public void remover (Avaliar av){
         avaliar.remove(av);
         fireTableRowsInserted(avaliar.size() -1, avaliar.size() -1);
     }
@@ -56,7 +57,7 @@ public class ModeloTabelaMusica extends AbstractTableModel {
         }
     }
     
-    public DaoAvaliar getAvaliar(int linha){
+    public Avaliar getAvaliar(int linha){
         return avaliar.get(linha);
         
     }

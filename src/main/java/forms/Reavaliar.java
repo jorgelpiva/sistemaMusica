@@ -5,7 +5,7 @@
  */
 package forms;
 
-import Dao.DaoConsultaAvaliacao;
+import Dao.DaoAvaliar;
 import javax.swing.JOptionPane;
 
 /**
@@ -149,7 +149,7 @@ public class Reavaliar extends javax.swing.JFrame {
             if(Integer.parseInt(avaliacaoTextField.getText()) < 1 ||Integer.parseInt(avaliacaoTextField.getText()) > 5 || avaliacaoTextField.getText() == ""){
                 JOptionPane.showMessageDialog(this,"Escolha um número entre 1 e 5");
             }else{
-                DaoConsultaAvaliacao.alterarAvaliacao(loginLabel.getText(), musicaTextField.getText(),
+                DaoAvaliar.alterarAvaliacao(loginLabel.getText(), musicaTextField.getText(),
                     Integer.parseInt(avaliacaoTextField.getText()));
             JOptionPane.showMessageDialog(null, "Musica Avaliada com sucesso!");
             this.dispose();

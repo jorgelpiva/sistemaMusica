@@ -5,7 +5,7 @@
  */
 package forms;
 
-import classes.Cliente;
+import Dao.DaoPessoa;
 import javax.swing.JOptionPane;
 
 /**
@@ -200,15 +200,13 @@ public class Cadastro extends javax.swing.JFrame {
                         + "email já cadastrado!!! ");
             }else{
                 if(senha.equals(senha1)){  
-
-                    Cliente c = new Cliente();
-
-                    boolean validarLogin = c.verificarLogin(usuarioCadastroTextField.getText().toLowerCase());
+                    
+                    boolean validarLogin = DaoPessoa.verifLogin(usuarioCadastroTextField.getText().toLowerCase());
 
                     if (validarLogin == true){
                         JOptionPane.showMessageDialog(this, "Que Pena usuário já cadastrado!! \n\nEscolha outro nome !!!!");
                     }else{    
-                    c.fazerCadastro(nomeCadastroTextField.getText(),usuarioCadastroTextField.getText().toLowerCase(),
+                    DaoPessoa.cadastrarPessoa(nomeCadastroTextField.getText(),usuarioCadastroTextField.getText().toLowerCase(),
                             senha, emailCadastroTextField.getText());
                     JOptionPane.showMessageDialog(rootPane, "Usuário Cadastrado com sucesso!!!");
                     this.dispose();

@@ -5,7 +5,7 @@
  */
 package forms;
 
-import classes.Pessoa;
+import Dao.DaoPessoa;
 import javax.swing.JOptionPane;
 
 
@@ -223,8 +223,8 @@ public class Login extends javax.swing.JFrame {
         boolean verificacao = false;
         
         String senha = new String(senhaPasswordField.getPassword());
-        Pessoa p = new Pessoa(loginTextField.getText(), senha);
-        verificacao = p.validarLogin();
+
+        verificacao = DaoPessoa.fazerLogin(loginTextField.getText(), senha);
 
 
         if (verificacao == true){

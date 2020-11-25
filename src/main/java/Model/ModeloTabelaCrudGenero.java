@@ -1,7 +1,6 @@
 
 package Model;
 
-import Dao.DaoGeneroRank;
 import classes.Genero;
 import java.util.ArrayList;
 import java.util.List;

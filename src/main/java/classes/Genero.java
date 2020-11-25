@@ -6,17 +6,28 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Genero {
-    private int classificacao;
+public class Genero implements Comparable<Genero> {
+    
+    private double classificacao;
+    private String nomeGenero;
+    
+    public Genero(){
+        
+    }
+    
+    public Genero(String nomeGenero, double classificacao){
+        this.classificacao = classificacao;
+        this.nomeGenero = nomeGenero;
+    }
 
-    public int getClassificacao() {
+    public double getClassificacao() {
         return classificacao;
     }
 
     public void setClassificacao(int classificacao) {
         this.classificacao = classificacao;
     }
-    private String nomeGenero;
+    
     
     public Genero (String nomeGenero){
         this.nomeGenero = nomeGenero;
@@ -31,43 +42,12 @@ public class Genero {
         this.nomeGenero = nomeGenero;
     }
     
-    public Genero(){
-        
-    }
-        public List<Genero> preencherCmbBox() {
-        List<Genero> generos = new ArrayList<>();
-        //1 Definir o comando SQL
-        String sql = "SELECT nomeGenero FROM tb_genero";
-        //2.Abrir conexão
-        try (Connection conexao = new ConnectionFactory().obterConexao()) {
-            //3.Pré compilar o comando
-            PreparedStatement ps = conexao.prepareStatement(sql);
-            //4. Executar
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                String genero = rs.getString("nomeGenero");
-                Genero g = new Genero(genero);
-                generos.add(g);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    public int compareTo(Genero t) {
+        if(this.classificacao > t.getClassificacao()){
+            return -1;
+        }else if(this.classificacao < t.getClassificacao()){
+            return 1;
         }
-        return generos;
-    }
-    
-    public void inserirGenero(){
-        
-    }
-    
-    public void excluirGenero(){
-        
-    }
-    
-    public void atualizarGenero(){
-        
-    }
-    
-    public void consultarGenero(){
-        
+        return 0;
     }
 }
