@@ -21,7 +21,7 @@ public class msgBox extends javax.swing.JFrame {
     public msgBox(String texto) {
         initComponents();
         setLocationRelativeTo(null);
-        mensagemLabel.setText(texto);
+        mensagemTextField.setText(texto);
         
     }
 
@@ -37,13 +37,14 @@ public class msgBox extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        mensagemLabel = new javax.swing.JLabel();
+        mensagemTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Mensagem");
 
         jPanel1.setBackground(new java.awt.Color(1, 1, 1));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)));
+        jPanel1.setForeground(new java.awt.Color(254, 254, 254));
 
         logo.setFont(new java.awt.Font("GodOfWar", 1, 30)); // NOI18N
         logo.setForeground(new java.awt.Color(245, 246, 247));
@@ -59,11 +60,11 @@ public class msgBox extends javax.swing.JFrame {
             }
         });
 
-        mensagemLabel.setFont(new java.awt.Font("Serif", 0, 15)); // NOI18N
-        mensagemLabel.setForeground(new java.awt.Color(254, 254, 254));
-        mensagemLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        mensagemLabel.setText("mensagem");
-        mensagemLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mensagemTextField.setBackground(new java.awt.Color(1, 1, 1));
+        mensagemTextField.setFont(new java.awt.Font("Serif", 0, 15)); // NOI18N
+        mensagemTextField.setForeground(new java.awt.Color(254, 254, 254));
+        mensagemTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        mensagemTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -74,15 +75,18 @@ public class msgBox extends javax.swing.JFrame {
                 .addContainerGap(210, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(206, 206, 206))
-            .addComponent(mensagemLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mensagemTextField)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
-                .addComponent(mensagemLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGap(52, 52, 52)
+                .addComponent(mensagemTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68))
         );
@@ -144,6 +148,6 @@ public class msgBox extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel logo;
-    private javax.swing.JLabel mensagemLabel;
+    private javax.swing.JTextField mensagemTextField;
     // End of variables declaration//GEN-END:variables
 }

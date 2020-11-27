@@ -1,5 +1,7 @@
 package Email;
 
+import Dao.DaoPessoa;
+import classes.Pessoa;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 
@@ -9,7 +11,7 @@ import org.apache.commons.mail.SimpleEmail;
  */
 public class Email {    
        public static void sendEmail(String destinatario) throws EmailException {
- 
+        Pessoa p = DaoPessoa.recuperacaoSenha(destinatario);
         SimpleEmail email = new SimpleEmail();
         // Utilize o hostname do seu provedor de email
         //System.out.println("alterando hostname...");
@@ -33,8 +35,8 @@ public class Email {
         email.setMsg("Olá, \n"
                 + "você está recebendo este email porque está cadastrado(a) em nosso Sistema de Recomendação de Músicas Rock - Me\n\n"
                 + "Seguem seus dados de acesso \n"
-                + "Login: \n"
-                + "Senha: ");
+                + "Login: "+p.getLoginPessoa()+"\n"
+                + "Senha: "+p.getSenhaPessoa());
  
         // Para autenticar no servidor é necessário chamar os dois métodos abaixo
         email.setSSL(true);

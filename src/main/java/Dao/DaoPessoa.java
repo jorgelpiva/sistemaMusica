@@ -1,6 +1,7 @@
 package Dao;
 
 import classes.ConnectionFactory;
+import classes.Pessoa;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -87,6 +88,28 @@ public class DaoPessoa {
              e.printStackTrace();
          }
         return false;
+    }
+    
+    public static Pessoa recuperacaoSenha(String email){
+        boolean verifEmail;
+         String sql = "SELECT tb_pessoa.loginPessoa, tb_pessoa.senhaPessoa FROM tb_pessoa WHERE emailPessoa = ?";
+         try(Connection conexao = new ConnectionFactory().obterConexao()){
+             
+             PreparedStatement ps = conexao.prepareStatement(sql);
+             ps.setString(1, email);
+             ResultSet rs = ps.executeQuery();
+             
+             
+             if(rs.next()){
+                 Pessoa p = new Pessoa(rs.getString("loginPessoa"), rs.getString("senhaPessoa"));
+                 conexao.close();
+                 return p; 
+             }
+             
+         }catch(Exception e){
+             e.printStackTrace();
+         }
+         return null;
     }
  
 }
