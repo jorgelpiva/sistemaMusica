@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package forms;
+package View;
 
 import Dao.DaoGenero;
 import Model.ModeloTabelaCrudGenero;
@@ -70,7 +70,6 @@ public class CrudGenero extends javax.swing.JFrame {
         alterarSalvarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
         voltarButton.setText("Voltar ao Menu");
