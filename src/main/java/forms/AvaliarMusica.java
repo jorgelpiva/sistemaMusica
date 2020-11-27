@@ -120,6 +120,8 @@ public class AvaliarMusica extends javax.swing.JFrame {
             }
         });
 
+        avaliarTable.setBackground(new java.awt.Color(1, 1, 1));
+        avaliarTable.setForeground(new java.awt.Color(254, 254, 254));
         avaliarTable.setModel(modeloTabela);
         avaliarTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
