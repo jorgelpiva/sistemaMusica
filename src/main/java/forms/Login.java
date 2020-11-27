@@ -231,7 +231,8 @@ public class Login extends javax.swing.JFrame {
             new Principal(loginTextField.getText().toLowerCase()).setVisible(true);
             this.dispose();
         }else{
-            JOptionPane.showMessageDialog(this, "Usuário ou senha incorretos");
+            String mensagem = "Usuário ou senha incorretos";
+            new msgBox(mensagem).setVisible(true);
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
