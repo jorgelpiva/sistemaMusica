@@ -33,11 +33,9 @@ public class Cadastro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        lblNomeCadastro = new javax.swing.JLabel();
-        lblUsuarioCadastro = new javax.swing.JLabel();
-        lblSenhaCadastro = new javax.swing.JLabel();
-        lblEmailCadastro = new javax.swing.JLabel();
         nomeCadastroTextField = new javax.swing.JTextField();
         usuarioCadastroTextField = new javax.swing.JTextField();
         emailCadastroTextField = new javax.swing.JTextField();
@@ -45,37 +43,60 @@ public class Cadastro extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         senhaCadastroPassword = new javax.swing.JPasswordField();
         senhaCadastroConfirmPassword = new javax.swing.JPasswordField();
+        jLabel2 = new javax.swing.JLabel();
+
+        jLabel1.setBackground(new java.awt.Color(254, 254, 254));
+        jLabel1.setFont(new java.awt.Font("GodOfWar", 1, 64)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel1.setText("Rock - Me");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Efetue Seu Cadastro de Forma Rápida!"));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setPreferredSize(new java.awt.Dimension(800, 666));
 
-        lblNomeCadastro.setText("Nome:");
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastre-se", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        lblUsuarioCadastro.setText("Usuário:");
-
-        lblSenhaCadastro.setText("Senha");
-
-        lblEmailCadastro.setText("E-mail");
-
-        nomeCadastroTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite o seu nome"));
+        nomeCadastroTextField.setBackground(new java.awt.Color(0, 0, 0));
+        nomeCadastroTextField.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        nomeCadastroTextField.setForeground(new java.awt.Color(255, 255, 255));
+        nomeCadastroTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Digite o seu nome", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
         nomeCadastroTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeCadastroTextFieldActionPerformed(evt);
             }
         });
 
-        usuarioCadastroTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite o seu Usuário"));
+        usuarioCadastroTextField.setBackground(new java.awt.Color(0, 0, 0));
+        usuarioCadastroTextField.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        usuarioCadastroTextField.setForeground(new java.awt.Color(255, 255, 255));
+        usuarioCadastroTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Digite o seu Usuário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        usuarioCadastroTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuarioCadastroTextFieldActionPerformed(evt);
+            }
+        });
 
-        emailCadastroTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("digite seu email válido"));
+        emailCadastroTextField.setBackground(new java.awt.Color(0, 0, 0));
+        emailCadastroTextField.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        emailCadastroTextField.setForeground(new java.awt.Color(255, 255, 255));
+        emailCadastroTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Digite um email válido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        emailCadastroTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailCadastroTextFieldActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Sair");
+        jButton1.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        jButton1.setText("Voltar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         jButton2.setText("Cadastrar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,95 +104,97 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
 
-        senhaCadastroPassword.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite sua senha"));
+        senhaCadastroPassword.setBackground(new java.awt.Color(0, 0, 0));
+        senhaCadastroPassword.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        senhaCadastroPassword.setForeground(new java.awt.Color(255, 255, 255));
+        senhaCadastroPassword.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Digite sua senha", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
         senhaCadastroPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 senhaCadastroPasswordActionPerformed(evt);
             }
         });
 
-        senhaCadastroConfirmPassword.setBorder(javax.swing.BorderFactory.createTitledBorder("Confirme sua Senha"));
+        senhaCadastroConfirmPassword.setBackground(new java.awt.Color(0, 0, 0));
+        senhaCadastroConfirmPassword.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        senhaCadastroConfirmPassword.setForeground(new java.awt.Color(255, 255, 255));
+        senhaCadastroConfirmPassword.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Confirme sua Senha", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(senhaCadastroConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblSenhaCadastro)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(senhaCadastroPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblUsuarioCadastro)
-                                    .addComponent(lblNomeCadastro))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nomeCadastroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(usuarioCadastroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblEmailCadastro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(emailCadastroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                    .addComponent(senhaCadastroConfirmPassword)
+                    .addComponent(senhaCadastroPassword)
+                    .addComponent(usuarioCadastroTextField)
+                    .addComponent(nomeCadastroTextField)
+                    .addComponent(emailCadastroTextField)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(42, 42, 42))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nomeCadastroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNomeCadastro))
+                .addGap(23, 23, 23)
+                .addComponent(nomeCadastroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(usuarioCadastroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUsuarioCadastro))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(senhaCadastroPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(senhaCadastroConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblSenhaCadastro))
+                .addComponent(usuarioCadastroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(emailCadastroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(49, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblEmailCadastro)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addComponent(senhaCadastroPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(senhaCadastroConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(emailCadastroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        jLabel2.setBackground(new java.awt.Color(254, 254, 254));
+        jLabel2.setFont(new java.awt.Font("GodOfWar", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel2.setText("Rock - Me");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(286, 286, 286)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(169, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -217,6 +240,14 @@ public class Cadastro extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void usuarioCadastroTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioCadastroTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usuarioCadastroTextFieldActionPerformed
+
+    private void emailCadastroTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailCadastroTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailCadastroTextFieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -256,11 +287,10 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JTextField emailCadastroTextField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblEmailCadastro;
-    private javax.swing.JLabel lblNomeCadastro;
-    private javax.swing.JLabel lblSenhaCadastro;
-    private javax.swing.JLabel lblUsuarioCadastro;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField nomeCadastroTextField;
     private javax.swing.JPasswordField senhaCadastroConfirmPassword;
     private javax.swing.JPasswordField senhaCadastroPassword;
