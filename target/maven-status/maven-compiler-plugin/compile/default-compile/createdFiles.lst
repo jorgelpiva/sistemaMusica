@@ -4,12 +4,16 @@ forms\Cadastro$1.class
 forms\Cadastro$3.class
 classes\Controle.class
 forms\Cadastro$2.class
+forms\ManutencaoMusica$8.class
 classes\Genero.class
 classes\Musica.class
 forms\Login$1.class
 forms\CrudMusica$7.class
 forms\Cadastro$7.class
+forms\Reavaliar$5.class
 classes\ConnectionFactory.class
 classes\Pessoa.class
+forms\ManutencaoMusica$9.class
+forms\GeneroPreferido$6.class
 forms\CrudMusica$8.class
 forms\Cadastro.class

@@ -64,6 +64,7 @@ public class ManutencaoMusica extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         alterarPanel = new javax.swing.JPanel();
         adicionarGeneroButton = new javax.swing.JButton();
         alterarComboBox = new javax.swing.JComboBox<>();
@@ -73,12 +74,13 @@ public class ManutencaoMusica extends javax.swing.JFrame {
         generoTable = new javax.swing.JTable();
         alterarButton = new javax.swing.JButton();
         excluirGeneroButton = new javax.swing.JButton();
-        voltarButton = new javax.swing.JButton();
         musicaFixoTextField = new javax.swing.JTextField();
         compositorMusicaFixoTextField = new javax.swing.JTextField();
         loginLabel = new javax.swing.JLabel();
+        voltarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 666));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -86,8 +88,13 @@ public class ManutencaoMusica extends javax.swing.JFrame {
             }
         });
 
-        alterarPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Detalhes da Música"));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 666));
 
+        alterarPanel.setBackground(new java.awt.Color(0, 0, 0));
+        alterarPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalhes da Música", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+
+        adicionarGeneroButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         adicionarGeneroButton.setText("Adicionar Gênero");
         adicionarGeneroButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,9 +102,27 @@ public class ManutencaoMusica extends javax.swing.JFrame {
             }
         });
 
-        alterarNomeMusicaTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Alterar Nome da Música"));
+        alterarComboBox.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
 
-        alterarCompositorTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Alterar Compositor da Música"));
+        alterarNomeMusicaTextField.setBackground(new java.awt.Color(0, 0, 0));
+        alterarNomeMusicaTextField.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        alterarNomeMusicaTextField.setForeground(new java.awt.Color(255, 255, 255));
+        alterarNomeMusicaTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Alterar Nome da Música", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        alterarNomeMusicaTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alterarNomeMusicaTextFieldActionPerformed(evt);
+            }
+        });
+
+        alterarCompositorTextField.setBackground(new java.awt.Color(0, 0, 0));
+        alterarCompositorTextField.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        alterarCompositorTextField.setForeground(new java.awt.Color(255, 255, 255));
+        alterarCompositorTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Alterar Compositor da Música", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        alterarCompositorTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alterarCompositorTextFieldActionPerformed(evt);
+            }
+        });
 
         generoTable.setModel(modeloGeneroTable);
         generoTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -107,6 +132,7 @@ public class ManutencaoMusica extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(generoTable);
 
+        alterarButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         alterarButton.setText("Alterar");
         alterarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +140,7 @@ public class ManutencaoMusica extends javax.swing.JFrame {
             }
         });
 
+        excluirGeneroButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         excluirGeneroButton.setText("Excluir Gênero");
         excluirGeneroButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +148,68 @@ public class ManutencaoMusica extends javax.swing.JFrame {
             }
         });
 
+        musicaFixoTextField.setEditable(false);
+        musicaFixoTextField.setBackground(new java.awt.Color(0, 0, 0));
+        musicaFixoTextField.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        musicaFixoTextField.setForeground(new java.awt.Color(255, 255, 255));
+        musicaFixoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nome da Música", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+
+        compositorMusicaFixoTextField.setEditable(false);
+        compositorMusicaFixoTextField.setBackground(new java.awt.Color(0, 0, 0));
+        compositorMusicaFixoTextField.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        compositorMusicaFixoTextField.setForeground(new java.awt.Color(255, 255, 255));
+        compositorMusicaFixoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nome do Compositor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+
+        javax.swing.GroupLayout alterarPanelLayout = new javax.swing.GroupLayout(alterarPanel);
+        alterarPanel.setLayout(alterarPanelLayout);
+        alterarPanelLayout.setHorizontalGroup(
+            alterarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, alterarPanelLayout.createSequentialGroup()
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addGroup(alterarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(alterarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(excluirGeneroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(alterarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(compositorMusicaFixoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(alterarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(alterarCompositorTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(alterarButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(musicaFixoTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(alterarComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(adicionarGeneroButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+                                .addComponent(alterarNomeMusicaTextField)))))
+                .addGap(20, 20, 20))
+        );
+        alterarPanelLayout.setVerticalGroup(
+            alterarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(alterarPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(alterarNomeMusicaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(alterarCompositorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(alterarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(musicaFixoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(compositorMusicaFixoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(alterarComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(adicionarGeneroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(excluirGeneroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        loginLabel.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        loginLabel.setForeground(new java.awt.Color(255, 255, 255));
+        loginLabel.setText("jLabel1");
+
+        voltarButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         voltarButton.setText("Voltar");
         voltarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,88 +217,41 @@ public class ManutencaoMusica extends javax.swing.JFrame {
             }
         });
 
-        musicaFixoTextField.setEditable(false);
-        musicaFixoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome da Música"));
-
-        compositorMusicaFixoTextField.setEditable(false);
-        compositorMusicaFixoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome do Compositor"));
-
-        javax.swing.GroupLayout alterarPanelLayout = new javax.swing.GroupLayout(alterarPanel);
-        alterarPanel.setLayout(alterarPanelLayout);
-        alterarPanelLayout.setHorizontalGroup(
-            alterarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
-            .addGroup(alterarPanelLayout.createSequentialGroup()
-                .addComponent(excluirGeneroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(adicionarGeneroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(alterarComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(alterarCompositorTextField)
-            .addComponent(alterarNomeMusicaTextField)
-            .addGroup(alterarPanelLayout.createSequentialGroup()
-                .addComponent(voltarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(alterarPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(alterarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(compositorMusicaFixoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(musicaFixoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(alterarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(loginLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(voltarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(alterarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
-        alterarPanelLayout.setVerticalGroup(
-            alterarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(alterarPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(alterarNomeMusicaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(alterarCompositorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(alterarButton)
-                .addGap(12, 12, 12)
-                .addComponent(musicaFixoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(compositorMusicaFixoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(alterarComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(alterarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(adicionarGeneroButton)
-                    .addComponent(excluirGeneroButton))
-                .addGap(16, 16, 16)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(voltarButton)
-                .addContainerGap())
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(alterarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(loginLabel)
+                    .addComponent(voltarButton))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
-
-        loginLabel.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(loginLabel)
-                .addContainerGap(739, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(alterarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(28, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(580, Short.MAX_VALUE)
-                .addComponent(loginLabel)
-                .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(alterarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(45, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -280,6 +322,14 @@ public class ManutencaoMusica extends javax.swing.JFrame {
         selecionadoGenero = gsel;
     }//GEN-LAST:event_generoTableMouseClicked
 
+    private void alterarNomeMusicaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarNomeMusicaTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_alterarNomeMusicaTextFieldActionPerformed
+
+    private void alterarCompositorTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarCompositorTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_alterarCompositorTextFieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -325,6 +375,7 @@ public class ManutencaoMusica extends javax.swing.JFrame {
     private javax.swing.JTextField compositorMusicaFixoTextField;
     private javax.swing.JButton excluirGeneroButton;
     private javax.swing.JTable generoTable;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel loginLabel;
     private javax.swing.JTextField musicaFixoTextField;

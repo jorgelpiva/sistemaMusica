@@ -109,7 +109,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         cadastrarButton.setBackground(new java.awt.Color(254, 254, 254));
-        cadastrarButton.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        cadastrarButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         cadastrarButton.setForeground(new java.awt.Color(1, 1, 1));
         cadastrarButton.setText("Cadastre-se");
         cadastrarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +119,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         loginButton.setBackground(new java.awt.Color(254, 254, 254));
-        loginButton.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        loginButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         loginButton.setForeground(new java.awt.Color(1, 1, 1));
         loginButton.setText("Entrar");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -208,7 +208,7 @@ public class Login extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

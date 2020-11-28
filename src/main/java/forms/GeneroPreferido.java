@@ -49,26 +49,30 @@ public class GeneroPreferido extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        generoLabel = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         lblGeneroPref = new javax.swing.JLabel();
-        generoComboBox = new javax.swing.JComboBox<>();
-        adicionarGeneroButton = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         generoTable = new javax.swing.JTable();
-        sairButton = new javax.swing.JButton();
+        generoComboBox = new javax.swing.JComboBox<>();
         ExcluirGeneroButton = new javax.swing.JButton();
-        generoLabel = new javax.swing.JLabel();
+        adicionarGeneroButton = new javax.swing.JButton();
+        sairButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Meus Gêneros Preferidos");
 
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+
+        lblGeneroPref.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        lblGeneroPref.setForeground(new java.awt.Color(255, 255, 255));
         lblGeneroPref.setText("jLabel1");
 
-        adicionarGeneroButton.setText("Adicionar Gênero");
-        adicionarGeneroButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adicionarGeneroButtonActionPerformed(evt);
-            }
-        });
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Adicionar Gêneros Preferidos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.setPreferredSize(new java.awt.Dimension(708, 500));
 
         generoTable.setModel(modeloTabGen);
         generoTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -78,13 +82,13 @@ public class GeneroPreferido extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(generoTable);
 
-        sairButton.setText("Voltar ao Menu");
-        sairButton.addActionListener(new java.awt.event.ActionListener() {
+        generoComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sairButtonActionPerformed(evt);
+                generoComboBoxActionPerformed(evt);
             }
         });
 
+        ExcluirGeneroButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         ExcluirGeneroButton.setText("Excluir Gênero");
         ExcluirGeneroButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,50 +96,110 @@ public class GeneroPreferido extends javax.swing.JFrame {
             }
         });
 
+        adicionarGeneroButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
+        adicionarGeneroButton.setText("Adicionar Gênero");
+        adicionarGeneroButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adicionarGeneroButtonActionPerformed(evt);
+            }
+        });
+
+        sairButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
+        sairButton.setText("Voltar ao Menu");
+        sairButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
+                    .addComponent(generoComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(adicionarGeneroButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ExcluirGeneroButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(generoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(adicionarGeneroButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ExcluirGeneroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(sairButton)
+                .addGap(22, 22, 22))
+        );
+
+        jLabel4.setBackground(new java.awt.Color(254, 254, 254));
+        jLabel4.setFont(new java.awt.Font("GodOfWar", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel4.setText("Rock - Me");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(283, 283, 283))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblGeneroPref, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(lblGeneroPref)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblGeneroPref, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84)
-                        .addComponent(generoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(ExcluirGeneroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(adicionarGeneroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(generoComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(267, 267, 267)
+                .addComponent(generoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(generoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ExcluirGeneroButton)
-                    .addComponent(adicionarGeneroButton))
-                .addGap(21, 21, 21)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(sairButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblGeneroPref)
-                    .addComponent(generoLabel))
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(generoLabel)
+                .addGap(0, 0, 0))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void sairButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairButtonActionPerformed
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sairButtonActionPerformed
 
     private void adicionarGeneroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarGeneroButtonActionPerformed
         // TODO add your handling code here:
@@ -143,40 +207,37 @@ public class GeneroPreferido extends javax.swing.JFrame {
         int codigoGenero, codigoPessoa;
         genero = generoComboBox.getSelectedItem().toString();
         login = lblGeneroPref.getText();
-        
+
         boolean validarGenero = DaoGenero.consultaGeneroCadastrado(login, genero);
-        
+
         if (validarGenero == false){
             PessoaGenero pg = new PessoaGenero();
             codigoPessoa = pg.ConsultaIdPessoa(login);
             codigoGenero = pg.ConsultaidGenero(genero);
-            pg.CadastroPessoaGenero(codigoGenero, codigoPessoa);  
+            pg.CadastroPessoaGenero(codigoGenero, codigoPessoa);
             Genero grk = new Genero(genero, 0);
             modeloTabGen.adicionar(grk);
             JOptionPane.showMessageDialog(this, "Ebaaaa! Gênero preferido Cadastrado com Sucesso!");
         }else{
             JOptionPane.showMessageDialog(this, "Este Gênero já foi Cadastrado");
         }
-      
     }//GEN-LAST:event_adicionarGeneroButtonActionPerformed
 
     private void ExcluirGeneroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirGeneroButtonActionPerformed
         DaoGenero.excluirGeneroPref(lblGeneroPref.getText(), generoClicado);
         modeloTabGen.remover(selecionado);
         JOptionPane.showMessageDialog(this, "Gênero Preferido Excluído com Sucesso! ");
-        
     }//GEN-LAST:event_ExcluirGeneroButtonActionPerformed
 
-    private void generoTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generoTableMouseClicked
-       Genero click = modeloTabGen.getGenero(generoTable.getSelectedRow());
-       generoClicado = click.getNomeGenero();
-       selecionado = click;
-    }//GEN-LAST:event_generoTableMouseClicked
-
-    private void sairButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairButtonActionPerformed
-        this.dispose();
+    private void generoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generoComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sairButtonActionPerformed
+    }//GEN-LAST:event_generoComboBoxActionPerformed
+
+    private void generoTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generoTableMouseClicked
+        Genero click = modeloTabGen.getGenero(generoTable.getSelectedRow());
+        generoClicado = click.getNomeGenero();
+        selecionado = click;
+    }//GEN-LAST:event_generoTableMouseClicked
 
     /**
      * @param args the command line arguments
@@ -219,6 +280,9 @@ public class GeneroPreferido extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> generoComboBox;
     private javax.swing.JLabel generoLabel;
     private javax.swing.JTable generoTable;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblGeneroPref;
     private javax.swing.JButton sairButton;
