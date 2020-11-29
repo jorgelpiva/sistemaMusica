@@ -468,7 +468,8 @@ public class DaoGenero {
                         mediagen = generoSoma / contgen;
                     }
                     
-                    mediagen = Conversao.converterDoubleDoisDecimais(mediagen);
+                    String arredondar = Model.Conversao.arredondar(mediagen);
+                    mediagen = Double.parseDouble(arredondar);
                     
                     Genero generoMedia = new Genero(g.getNomeGenero(), mediagen);
                     

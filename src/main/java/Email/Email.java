@@ -5,10 +5,7 @@ import classes.Pessoa;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 
-/**
- * Classe responsável por enviar E-mail.
- * @author Denner Dias
- */
+
 public class Email {    
        public static void sendEmail(String destinatario) throws EmailException {
         Pessoa p = DaoPessoa.recuperacaoSenha(destinatario);

@@ -1,6 +1,7 @@
 
 package Model;
 
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 public class Conversao {
@@ -12,6 +13,12 @@ public class Conversao {
     String string2 = part[0]+"."+part[1];
         double preco = Double.parseDouble(string2);
     return preco;
+}
+    
+   public static String arredondar(double media) {
+   DecimalFormat df = new DecimalFormat("0.00");
+   df.setRoundingMode(RoundingMode.HALF_UP);
+   return df.format(media);
 }
     
 }
