@@ -54,11 +54,8 @@
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="sairButton" min="-2" pref="140" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="loginLabel" min="-2" pref="121" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="598" max="-2" attributes="0"/>
-                      </Group>
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="loginLabel" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="42" max="32767" attributes="0"/>
               </Group>
@@ -152,6 +149,9 @@
             </Container>
             <Component class="javax.swing.JButton" name="reavaliarButton">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Serif" size="14" style="1"/>
                 </Property>
@@ -163,6 +163,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="ExcluirAvaliacaoButton">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Serif" size="14" style="1"/>
                 </Property>
@@ -176,6 +179,9 @@
         </Container>
         <Component class="javax.swing.JButton" name="sairButton">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Serif" size="14" style="1"/>
             </Property>

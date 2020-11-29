@@ -77,6 +77,7 @@ public class CrudGenero extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)));
         jPanel2.setPreferredSize(new java.awt.Dimension(800, 666));
 
+        voltarButton.setBackground(new java.awt.Color(255, 255, 255));
         voltarButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         voltarButton.setText("Voltar ao Menu");
         voltarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -92,6 +93,7 @@ public class CrudGenero extends javax.swing.JFrame {
         alterarPanel.setBackground(new java.awt.Color(0, 0, 0));
         alterarPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Alterar Gênero", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
+        alterarSalvarButton.setBackground(new java.awt.Color(255, 255, 255));
         alterarSalvarButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         alterarSalvarButton.setText("Salvar Alterações");
         alterarSalvarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -136,6 +138,7 @@ public class CrudGenero extends javax.swing.JFrame {
             }
         });
 
+        salvarButton.setBackground(new java.awt.Color(255, 255, 255));
         salvarButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         salvarButton.setText("Salvar");
         salvarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -152,6 +155,7 @@ public class CrudGenero extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableGenero);
 
+        excluirButton.setBackground(new java.awt.Color(255, 255, 255));
         excluirButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         excluirButton.setText("Exlcuir");
         excluirButton.addActionListener(new java.awt.event.ActionListener() {
@@ -160,6 +164,7 @@ public class CrudGenero extends javax.swing.JFrame {
             }
         });
 
+        alterarButton.setBackground(new java.awt.Color(255, 255, 255));
         alterarButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         alterarButton.setText("Alterar");
         alterarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -217,17 +222,16 @@ public class CrudGenero extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
-                        .addComponent(loginLabel)
-                        .addContainerGap(130, Short.MAX_VALUE))
+                        .addComponent(loginLabel))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(alterarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(voltarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(140, 140, 140))))
+                        .addGap(197, 197, 197)
+                        .addComponent(voltarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -239,7 +243,7 @@ public class CrudGenero extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

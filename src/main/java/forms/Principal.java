@@ -54,6 +54,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 666));
 
+        avaliarMusicaButton.setBackground(new java.awt.Color(255, 255, 255));
         avaliarMusicaButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         avaliarMusicaButton.setText("Avaliar Músicas");
         avaliarMusicaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -62,6 +63,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        minhasAvaliacoesButton.setBackground(new java.awt.Color(255, 255, 255));
         minhasAvaliacoesButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         minhasAvaliacoesButton.setText("Minhas Avaliações");
         minhasAvaliacoesButton.addActionListener(new java.awt.event.ActionListener() {
@@ -70,6 +72,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        obterRecomendacaoButton.setBackground(new java.awt.Color(255, 255, 255));
         obterRecomendacaoButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         obterRecomendacaoButton.setText("Obter Recomendações");
         obterRecomendacaoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -78,6 +81,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        generoPreferidoButton.setBackground(new java.awt.Color(255, 255, 255));
         generoPreferidoButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         generoPreferidoButton.setText("Meus Gêneros Preferidos");
         generoPreferidoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +90,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        cadastrarMusicaButton.setBackground(new java.awt.Color(255, 255, 255));
         cadastrarMusicaButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         cadastrarMusicaButton.setText("Cadastrar Musicas");
         cadastrarMusicaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -94,6 +99,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        cadastrarGeneroButton.setBackground(new java.awt.Color(255, 255, 255));
         cadastrarGeneroButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         cadastrarGeneroButton.setText("Cadastrar Gêneros");
         cadastrarGeneroButton.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +108,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         jButton1.setText("Sair");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

@@ -86,6 +86,7 @@ public class MinhasAvaliacoes extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(avaliadoTable);
 
+        reavaliarButton.setBackground(new java.awt.Color(255, 255, 255));
         reavaliarButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         reavaliarButton.setText("Reavaliar");
         reavaliarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -94,6 +95,7 @@ public class MinhasAvaliacoes extends javax.swing.JFrame {
             }
         });
 
+        ExcluirAvaliacaoButton.setBackground(new java.awt.Color(255, 255, 255));
         ExcluirAvaliacaoButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         ExcluirAvaliacaoButton.setText("Excluir Avaliação");
         ExcluirAvaliacaoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +128,7 @@ public class MinhasAvaliacoes extends javax.swing.JFrame {
                 .addGap(67, 67, 67))
         );
 
+        sairButton.setBackground(new java.awt.Color(255, 255, 255));
         sairButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         sairButton.setText("Voltar");
         sairButton.addActionListener(new java.awt.event.ActionListener() {
@@ -142,10 +145,8 @@ public class MinhasAvaliacoes extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(loginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(598, 598, 598))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(

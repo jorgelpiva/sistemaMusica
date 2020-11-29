@@ -6,10 +6,9 @@ import javax.swing.JOptionPane;
 
 public class Controle {
     
-    public static void main(String[] args) {   
-    
+   public static void main(String[] args) {   
    Login log = new Login();
-        log.setVisible(true);
+   log.setVisible(true);
     }
     
 }   

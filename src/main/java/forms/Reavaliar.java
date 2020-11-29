@@ -83,6 +83,7 @@ public class Reavaliar extends javax.swing.JFrame {
         avaliacaoTextField.setForeground(new java.awt.Color(255, 255, 255));
         avaliacaoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Avaliação", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
 
+        reavaliarButton.setBackground(new java.awt.Color(255, 255, 255));
         reavaliarButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         reavaliarButton.setText("Reavaliar");
         reavaliarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +123,7 @@ public class Reavaliar extends javax.swing.JFrame {
         loginLabel.setForeground(new java.awt.Color(255, 255, 255));
         loginLabel.setText("jLabel1");
 
+        sairButton.setBackground(new java.awt.Color(255, 255, 255));
         sairButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         sairButton.setText("Voltar");
         sairButton.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +140,7 @@ public class Reavaliar extends javax.swing.JFrame {
                 .addGap(104, 104, 104)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(loginLabel)
+                        .addComponent(loginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

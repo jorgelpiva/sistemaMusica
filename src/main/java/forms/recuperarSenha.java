@@ -33,6 +33,7 @@ public class recuperarSenha extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(254, 254, 254));
         jLabel1.setText("rock - me");
 
+        enviarButton.setBackground(new java.awt.Color(255, 255, 255));
         enviarButton.setFont(new java.awt.Font("Serif", 0, 15)); // NOI18N
         enviarButton.setText("Enviar");
         enviarButton.addActionListener(new java.awt.event.ActionListener() {

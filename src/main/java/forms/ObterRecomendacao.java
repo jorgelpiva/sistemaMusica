@@ -112,6 +112,7 @@ public class ObterRecomendacao extends javax.swing.JFrame {
         avaliacaoTextField.setForeground(new java.awt.Color(255, 255, 255));
         avaliacaoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Avaliação", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
 
+        darAvaliacaoButton.setBackground(new java.awt.Color(255, 255, 255));
         darAvaliacaoButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         darAvaliacaoButton.setText("Avaliar");
         darAvaliacaoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -120,6 +121,7 @@ public class ObterRecomendacao extends javax.swing.JFrame {
             }
         });
 
+        cancelarButton.setBackground(new java.awt.Color(255, 255, 255));
         cancelarButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         cancelarButton.setText("Cancelar");
         cancelarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -174,6 +176,7 @@ public class ObterRecomendacao extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(recomendacaoTable);
 
+        avaliarButton.setBackground(new java.awt.Color(255, 255, 255));
         avaliarButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         avaliarButton.setText("Avaliar");
         avaliarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -203,6 +206,7 @@ public class ObterRecomendacao extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
+        voltarMenuButton.setBackground(new java.awt.Color(255, 255, 255));
         voltarMenuButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         voltarMenuButton.setText("Voltar ao Menu");
         voltarMenuButton.addActionListener(new java.awt.event.ActionListener() {
@@ -221,7 +225,7 @@ public class ObterRecomendacao extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(loginLabel)
+                .addComponent(loginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(voltarMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))

@@ -80,7 +80,6 @@ public class ManutencaoMusica extends javax.swing.JFrame {
         voltarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 666));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -94,6 +93,7 @@ public class ManutencaoMusica extends javax.swing.JFrame {
         alterarPanel.setBackground(new java.awt.Color(0, 0, 0));
         alterarPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalhes da Música", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
+        adicionarGeneroButton.setBackground(new java.awt.Color(255, 255, 255));
         adicionarGeneroButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         adicionarGeneroButton.setText("Adicionar Gênero");
         adicionarGeneroButton.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +132,7 @@ public class ManutencaoMusica extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(generoTable);
 
+        alterarButton.setBackground(new java.awt.Color(255, 255, 255));
         alterarButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         alterarButton.setText("Alterar");
         alterarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +141,7 @@ public class ManutencaoMusica extends javax.swing.JFrame {
             }
         });
 
+        excluirGeneroButton.setBackground(new java.awt.Color(255, 255, 255));
         excluirGeneroButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         excluirGeneroButton.setText("Excluir Gênero");
         excluirGeneroButton.addActionListener(new java.awt.event.ActionListener() {
@@ -209,6 +211,7 @@ public class ManutencaoMusica extends javax.swing.JFrame {
         loginLabel.setForeground(new java.awt.Color(255, 255, 255));
         loginLabel.setText("jLabel1");
 
+        voltarButton.setBackground(new java.awt.Color(255, 255, 255));
         voltarButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         voltarButton.setText("Voltar");
         voltarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -225,7 +228,7 @@ public class ManutencaoMusica extends javax.swing.JFrame {
                 .addGap(92, 92, 92)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(loginLabel)
+                        .addComponent(loginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(voltarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(alterarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

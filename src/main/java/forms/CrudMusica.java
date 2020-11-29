@@ -61,6 +61,8 @@ public class CrudMusica extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -74,6 +76,8 @@ public class CrudMusica extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         loginLabel = new javax.swing.JLabel();
+
+        jScrollPane2.setViewportView(jTextPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Músicas");
@@ -117,6 +121,7 @@ public class CrudMusica extends javax.swing.JFrame {
             }
         });
 
+        SalvarButton.setBackground(new java.awt.Color(255, 255, 255));
         SalvarButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         SalvarButton.setText("Salvar Música");
         SalvarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +130,7 @@ public class CrudMusica extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         jButton3.setText("Excluir Música");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -133,6 +139,7 @@ public class CrudMusica extends javax.swing.JFrame {
             }
         });
 
+        alterarButton.setBackground(new java.awt.Color(255, 255, 255));
         alterarButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         alterarButton.setText("Alterar Música");
         alterarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -182,6 +189,7 @@ public class CrudMusica extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(254, 254, 254));
         jLabel4.setText("Rock - Me");
 
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         jButton4.setText("Voltar Ao Menu");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -358,6 +366,8 @@ public class CrudMusica extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JLabel loginLabel;
     private javax.swing.JTextField musicaCadastroTextField;
     private javax.swing.JTable musicaTable;

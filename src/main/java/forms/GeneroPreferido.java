@@ -88,6 +88,7 @@ public class GeneroPreferido extends javax.swing.JFrame {
             }
         });
 
+        ExcluirGeneroButton.setBackground(new java.awt.Color(255, 255, 255));
         ExcluirGeneroButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         ExcluirGeneroButton.setText("Excluir Gênero");
         ExcluirGeneroButton.addActionListener(new java.awt.event.ActionListener() {
@@ -96,6 +97,7 @@ public class GeneroPreferido extends javax.swing.JFrame {
             }
         });
 
+        adicionarGeneroButton.setBackground(new java.awt.Color(255, 255, 255));
         adicionarGeneroButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         adicionarGeneroButton.setText("Adicionar Gênero");
         adicionarGeneroButton.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +106,7 @@ public class GeneroPreferido extends javax.swing.JFrame {
             }
         });
 
+        sairButton.setBackground(new java.awt.Color(255, 255, 255));
         sairButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         sairButton.setText("Voltar ao Menu");
         sairButton.addActionListener(new java.awt.event.ActionListener() {

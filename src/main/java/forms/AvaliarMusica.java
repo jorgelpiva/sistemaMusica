@@ -116,6 +116,7 @@ public class AvaliarMusica extends javax.swing.JFrame {
         loginLabel.setForeground(new java.awt.Color(204, 204, 204));
         loginLabel.setText("jLabel1");
 
+        sairButton.setBackground(new java.awt.Color(255, 255, 255));
         sairButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         sairButton.setText("Voltar ao Menu");
         sairButton.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +125,7 @@ public class AvaliarMusica extends javax.swing.JFrame {
             }
         });
 
+        avaliarButton.setBackground(new java.awt.Color(255, 255, 255));
         avaliarButton.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         avaliarButton.setText("Submeter");
         avaliarButton.addActionListener(new java.awt.event.ActionListener() {

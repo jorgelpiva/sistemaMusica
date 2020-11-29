@@ -35,6 +35,7 @@ public class MsgBox extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(254, 254, 254));
         jLabel1.setText("rock - me");
 
+        sairButton.setBackground(new java.awt.Color(255, 255, 255));
         sairButton.setFont(new java.awt.Font("Serif", 0, 15)); // NOI18N
         sairButton.setText("Sair");
         sairButton.addActionListener(new java.awt.event.ActionListener() {
