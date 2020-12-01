@@ -280,7 +280,7 @@ public class ManutencaoMusica extends javax.swing.JFrame {
             boolean duplicidade = DaoMusica.verifDuplicidade(nomeDaMusica, compositorDaMusica);
 
             if(duplicidade == true){
-                new MsgBox("Impossível alterar, já existe esta música para este compositor!  ");
+                new MsgBox("Impossível alterar, já existe esta música para este compositor!  ").setVisible(true);
             }else{
             musicaFixoTextField.setText(nomeDaMusica);
             compositorMusicaFixoTextField.setText(compositorDaMusica);

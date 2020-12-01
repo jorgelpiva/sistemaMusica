@@ -114,7 +114,8 @@ public class CrudMusica extends javax.swing.JFrame {
         compositorCadastroTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Banda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
 
         generoCadastroComboBox.setBackground(new java.awt.Color(0, 0, 0));
-        generoCadastroComboBox.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gênero", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 14))); // NOI18N
+        generoCadastroComboBox.setForeground(new java.awt.Color(254, 254, 254));
+        generoCadastroComboBox.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gênero", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Serif", 1, 14), new java.awt.Color(254, 254, 254))); // NOI18N
         generoCadastroComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 generoCadastroComboBoxActionPerformed(evt);

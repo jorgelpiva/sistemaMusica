@@ -187,8 +187,8 @@ public class Reavaliar extends javax.swing.JFrame {
             }else{
                 DaoAvaliar.alterarAvaliacao(loginLabel.getText(), musicaTextField.getText(),
                     Integer.parseInt(avaliacaoTextField.getText()));
-            new MsgBox("Musica Avaliada com sucesso!").setVisible(true);
-            this.dispose();
+                JOptionPane.showMessageDialog(this, "Musica Avaliada com sucesso!");
+                this.dispose();
             }
         }catch(NumberFormatException e){
            new MsgBox("Escolha uma avaliação entre 1 e 5").setVisible(true); 
